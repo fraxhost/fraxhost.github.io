@@ -1,1 +1,136 @@
+:root {
+  --background-color: #f7f4ed;
+  --foreground-color: #242424;
+  --foreground-color-20: #505050;
+}
 
+* {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  margin: 0;
+}
+
+/* common classes */
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* body */
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* nav */
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 1rem 5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+nav ul li {
+  font-size: 1.8rem;
+}
+
+.navbar-brand {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+/* intro */
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.8rem;
+  margin: 1rem 5rem;
+}
+
+.short-intro {
+  flex: 3;
+  font-size: inherit;
+}
+
+.long-intro {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+  font-size: inherit;
+}
+
+.long-intro h1 {
+  font-size: 4.8rem;
+  font-weight: 100;
+}
+
+.long-intro h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.long-intro p {
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.education {
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+}
+
+.education ul {
+  margin: 0;
+  padding: 0;
+}
+
+.education ul .course,
+.institution {
+  padding-left: 1rem;
+}
+
+.course {
+  font-size: 2rem;
+}
+
+.institution {
+  font-size: 1.6rem;
+  color: var(--foreground-color-20);
+}
+
+.interests {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.interests ul {
+  list-style-position: outside;
+  padding-left: 2rem;
+}
+
+.interests ul li {
+  font-size: 1.8rem;
+}
