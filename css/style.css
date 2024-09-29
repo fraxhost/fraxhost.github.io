@@ -29,9 +29,14 @@ body {
   color: var(--foreground-color);
 }
 
-.main-body {
+main {
   display: flex;
-  flex-direction: column;
+}
+
+#main-body {
+  flex: 7;
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
 }
 
 /* nav */
@@ -43,7 +48,18 @@ nav {
   margin: 1rem 5rem;
 }
 
+nav a {
+  color: var(--foreground-color-20);
+  text-decoration: none;
+}
+
+nav #nav-title {
+  flex: 3;
+  font-size: 3rem;
+}
+
 nav ul {
+  flex: 7;
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -51,86 +67,55 @@ nav ul {
 }
 
 nav ul li {
-  font-size: 1.8rem;
+  font-size: 3rem;
 }
 
-.navbar-brand {
-  font-size: 3.2rem;
-  font-weight: 700;
+/* main body */
+#main-body {
+  font-size: 3rem;
 }
 
-/* intro */
+/* sidebar */
 
-.intro {
-  display: flex;
-  flex-direction: row;
-  font-size: 1.8rem;
-  margin: 1rem 5rem;
-}
-
-.short-intro {
+#side-bar {
   flex: 3;
-  font-size: inherit;
-}
-
-.long-intro {
-  flex: 7;
+  height: 100vh;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
-  font-size: inherit;
 }
 
-.long-intro h1 {
-  font-size: 4.8rem;
-  font-weight: 100;
+/* profile */
+
+#profile-img {
+  width: 20rem; /* Set desired width */
+  height: 20rem; /* Set desired height */
+  border-radius: 50%; /* This makes it round */
+  object-fit: cover; /* Ensures the image is properly contained */
+  margin-bottom: 2rem;
 }
 
-.long-intro h2 {
-  font-size: 3.2rem;
+#profile-name {
+  font-size: 3rem;
   font-weight: 700;
 }
 
-.long-intro p {
+#profession {
   font-size: 2rem;
-  font-weight: 100;
+  margin-bottom: 3rem;
 }
 
-.education {
-  flex: 6;
-  display: flex;
-  flex-direction: column;
-}
-
-.education ul {
-  margin: 0;
-  padding: 0;
-}
-
-.education ul .course,
-.institution {
-  padding-left: 1rem;
-}
-
-.course {
-  font-size: 2rem;
-}
-
-.institution {
-  font-size: 1.6rem;
+.profile-icon {
   color: var(--foreground-color-20);
 }
 
-.interests {
-  flex: 4;
+.profile-link {
   display: flex;
-  flex-direction: column;
-}
-
-.interests ul {
-  list-style-position: outside;
-  padding-left: 2rem;
-}
-
-.interests ul li {
-  font-size: 1.8rem;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: 3rem;
+  text-decoration: none;
+  color: var(--foreground-color);
+  align-items: center;
+  margin-bottom: 1rem;
 }

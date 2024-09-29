@@ -1,0 +1,31 @@
+.experience-title {
+  font-size: 3rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.experience-designation {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.experience-place {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.experience-details {
+  margin-bottom: 1rem;
+}
+
+.experience-details p {
+  font-size: 2rem;
+}
+
+.experience-details li {
+  font-size: 1.8rem;
+}
+
+i {
+  font-size: 2rem;
+  margin: 0 1rem 0 1rem;
+}
