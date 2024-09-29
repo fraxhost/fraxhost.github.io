@@ -1,7 +1,12 @@
 :root {
   --background-color: #f7f4ed;
   --foreground-color: #242424;
+  --foreground-color-10: #3a3a3a;
   --foreground-color-20: #505050;
+  --foreground-color-30: #666666;
+  --foreground-color-40: #7c7c7c;
+  --foreground-color-50: #929292;
+  --foreground-color-60: #a7a7a7;
 }
 
 * {
@@ -9,7 +14,6 @@
   font-size: 62.5%;
   margin: 0;
 }
-
 /* common classes */
 
 .row {
@@ -22,11 +26,29 @@
   flex-direction: column;
 }
 
+.footer {
+  height: 3rem;
+  width: 100%;
+  color: var(--background-color);
+  background-color: var(--foreground-color-20);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p {
+  font-size: 1rem;
+}
+
 /* body */
 
 body {
+  font-family: "Poppins", sans-serif;
   background-color: var(--background-color);
   color: var(--foreground-color);
+  max-width: 160rem;
+  margin: 0 auto;
 }
 
 main {
@@ -86,6 +108,9 @@ nav ul li {
 }
 
 /* profile */
+#profile {
+  margin-left: 1rem;
+}
 
 #profile-img {
   width: 20rem; /* Set desired width */
@@ -113,9 +138,9 @@ nav ul li {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-decoration: none;
   color: var(--foreground-color);
   align-items: center;
-  margin-bottom: 1rem;
+  justify-content: start;
 }

@@ -1,0 +1,47 @@
+ul {
+  font-size: 3rem;
+}
+
+.skill-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.skill-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--foreground-color-10);
+  margin-top: 0.5rem;
+}
+
+.skill-subtitle {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0.5rem 0;
+  color: var(--foreground-color-20);
+}
+
+.skill-organization {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--foreground-color-20);
+}
+
+.skill-icons {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.skill-subheading {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.skill-subheading p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--foreground-color-30);
+}
