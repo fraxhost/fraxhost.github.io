@@ -47,7 +47,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--background-color);
   color: var(--foreground-color);
-  max-width: 160rem;
+  max-width: 120rem;
   margin: 0 auto;
 }
 
