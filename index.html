@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <title>Ahmed Ryan</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/education.css" />
-    <link rel="stylesheet" href="/css/experience.css" />
-    <link rel="stylesheet" href="/css/project.css" />
-    <link rel="stylesheet" href="/css/skill.css" />
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
     <link
       rel="stylesheet"
@@ -19,39 +15,40 @@
     />
   </head>
   <body id="body">
-    <!-- Content of your website -->
+    <!-- navbar begins -->
     <nav>
-      <p id="nav-title">Ahmed Ryan</p>
+      <a class="nav-title" href="/html/index.html">Home</a>
       <ul>
         <li>
-          <a href="#" onclick="loadContent('/html/education.html')"
-            >Education</a
-          >
+          <a href="/html/education.html">Education</a>
         </li>
         <li>
-          <a href="#" onclick="loadContent('/html/experience.html')"
-            >Experience</a
-          >
+          <a href="/html/experience.html">Experience</a>
         </li>
         <li>
-          <a href="#" onclick="loadContent('/html/project.html')">Projects</a>
+          <a href="/html/project.html">Projects</a>
         </li>
         <li>
-          <a href="#" onclick="loadContent('/html/skill.html')">Skills</a>
-        </li>
+          <a href="/html/skill.html">Skills</a>
         </li>
         <li>
-          <a href="#" onclick="loadContent('/html/extracurricular.html')">Extracurriculars</a>
+          <a href="/html/extracurricular.html">Extracurriculars</a>
         </li>
       </ul>
     </nav>
+    <!-- navbar ends -->
 
     <main>
-      <div id="side-bar">
-        <div id="profile">
-          <img id="profile-img" src="/assets/images/ryan.jpg" alt="" />
-          <p id="profile-name">Ahmed Ryan</p>
-          <p id="profession">Software Engineer</p>
+      <!-- sidebar begins -->
+      <div class="side-bar">
+        <div class="profile">
+          <img
+            class="profile-img"
+            src="/assets/images/ryan.jpg"
+            alt="Ryan's Photo"
+          />
+          <p class="profile-name">Ahmed Ryan</p>
+          <p class="profession">Software Engineer</p>
         </div>
 
         <a class="profile-link" href="">
@@ -73,11 +70,11 @@
           <i class="fa-brands fa-linkedin profile-icon"> </i>
           <p>LinkedIn</p>
         </a>
-
-        <!-- This adds a job/briefcase icon -->
       </div>
+      <!-- sidebar ends -->
 
-      <div id="main-body">
+      <!-- main body section begins -->
+      <div class="main-body">
         <!-- <div>Intro</div>
         <div>Research Interest Areas</div>
         <ul>
@@ -88,9 +85,14 @@
           <li>Low-Level System Security and Threat Intelligence</li>
         </ul> -->
       </div>
+      <!-- main body section ends -->
     </main>
 
-    <!-- <footer id="footer" class="footer"><p>Ahmed Ryan © 2024</p></footer> -->
+    <!-- footer begins -->
+    <footer class="footer">
+      <p>Ahmed Ryan © 2024</p>
+    </footer>
+    <!-- footer ends -->
 
     <!-- javascript imports -->
     <script src="js/script.js"></script>
