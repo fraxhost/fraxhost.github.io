@@ -141,4 +141,5 @@ nav ul li {
   color: var(--foreground-color);
   align-items: center;
   justify-content: start;
+  margin-left: 1rem;
 }

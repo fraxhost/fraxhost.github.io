@@ -5,6 +5,10 @@
   text-decoration: underline;
 }
 
+.experience-list {
+  font-size: 3rem;
+}
+
 .experience-designation {
   font-size: 2rem;
   font-weight: 600;
@@ -12,14 +16,15 @@
   margin-top: 0.5rem;
 }
 
-.experience-place {
-  font-size: 1.7rem;
+.experience-place,
+.experience-place a {
+  font-size: 1.8rem;
   font-weight: 500;
   color: var(--foreground-color-20);
+  display: flex;
 }
 
 .experience-details {
-  font-style: italic;
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
@@ -27,18 +32,18 @@
 }
 
 .experience-details p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 500;
   color: var(--foreground-color-30);
 }
 
 .experience-details ul {
-  margin-left: 2rem; /* Removes left margin */
+  margin-left: 2rem;
   padding-left: 0;
 }
 
 .experience-details li {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 i {
