@@ -1,0 +1,26 @@
+.extracurricular-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.extracurricular-list {
+  font-size: 3rem;
+}
+
+.extracurricular-position {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.extracurricular-place {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.extracurricular-description {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
