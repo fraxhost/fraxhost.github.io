@@ -6,7 +6,8 @@
 }
 
 .project-directory strong {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .project-directory,
@@ -15,7 +16,7 @@
 }
 
 .project-directory a {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--foreground-color-20);
 }
 
@@ -32,24 +33,40 @@
 .project-name,
 .project-name strong,
 .project-name span {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.project-name strong {
+  text-transform: uppercase;
 }
 
 .project-description,
 .project-description strong,
 .project-description span {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+}
+
+.project-description strong {
+  text-transform: uppercase;
 }
 
 .project-tool,
 .project-tool strong,
 .project-tool span {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.project-tool strong {
+  text-transform: uppercase;
 }
 
 .project-link,
 .project-link strong,
 .project-link span,
 .project-link a {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.project-link strong {
+  text-transform: uppercase;
 }

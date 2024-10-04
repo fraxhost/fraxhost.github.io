@@ -19,8 +19,10 @@
   <body>
     <!-- navbar begins -->
     <nav>
-      <a class="nav-title" href="/">Home</a>
       <ul>
+        <li>
+          <a href="/">About Me</a>
+        </li>
         <li>
           <a href="/html/education.html">Education</a>
         </li>
@@ -34,7 +36,7 @@
           <a href="/html/skill.html">Skills</a>
         </li>
         <li>
-          <a href="/html/extracurricular.html">Extracurriculars</a>
+          <a href="/html/extracurricular.html">Volunteering</a>
         </li>
       </ul>
     </nav>
@@ -44,30 +46,38 @@
       <!-- sidebar section begins -->
       <div class="side-bar">
         <div class="profile">
-          <img class="profile-img" src="/assets/images/ryan.jpg" alt="" />
+          <img
+            class="profile-img"
+            src="/assets/images/ryan.jpg"
+            alt="Ryan's Photo"
+          />
           <p class="profile-name">Ahmed Ryan</p>
           <p class="profession">Software Engineer</p>
+
+          <a class="profile-link" href="">
+            <i class="fas fa-briefcase profile-icon"> </i>
+            <p>Cefalo Bangladesh Ltd.</p>
+          </a>
+
+          <a class="profile-link" href="">
+            <i class="fas fa-envelope profile-icon"> </i>
+            <p>Email</p>
+          </a>
+
+          <a class="profile-link" href="">
+            <i class="fa-brands fa-github profile-icon"> </i>
+            <p>GitHub</p>
+          </a>
+
+          <a class="profile-link" href="">
+            <i class="fa-brands fa-linkedin profile-icon"> </i>
+            <p>LinkedIn</p>
+          </a>
+
+          <button onclick="scrollToTop()" class="scroll-btn">
+            <i class="fa fa-chevron-circle-up fa-xl" aria-hidden="true"></i>
+          </button>
         </div>
-
-        <a class="profile-link" href="">
-          <i class="fas fa-briefcase profile-icon"> </i>
-          <p>Cefalo Bangladesh Ltd.</p>
-        </a>
-
-        <a class="profile-link" href="">
-          <i class="fas fa-envelope profile-icon"> </i>
-          <p>Email</p>
-        </a>
-
-        <a class="profile-link" href="">
-          <i class="fa-brands fa-github profile-icon"> </i>
-          <p>GitHub</p>
-        </a>
-
-        <a class="profile-link" href="">
-          <i class="fa-brands fa-linkedin profile-icon"> </i>
-          <p>LinkedIn</p>
-        </a>
       </div>
       <!-- sidebar section ends -->
 
@@ -910,5 +920,8 @@
       <p>Ahmed Ryan © 2024</p>
     </footer>
     <!-- footer ends -->
+
+    <!-- javascript imports -->
+    <script src="/js/script.js"></script>
   </body>
 </html>
