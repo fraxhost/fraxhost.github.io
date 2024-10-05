@@ -24,3 +24,8 @@
   font-weight: 300;
   margin-bottom: 1rem;
 }
+
+.extracurricular-description strong {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
