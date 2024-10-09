@@ -189,11 +189,19 @@ nav ul li {
 }
 
 /* For tablets (screen width between 768px and 1024px) */
-@media (max-width: 1024px) and (min-width: 768px) {
-}
+/* @media (max-width: 1024px) and (min-width: 768px) {
+} */
 
 /* For mobile devices (screen width less than 768px) */
-@media (max-width: 767px) {
+@media (max-width: 920px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  main {
+    margin: 0;
+  }
+
   .side-bar {
     display: none;
   }
@@ -206,10 +214,6 @@ nav ul li {
 
   .burger {
     display: flex;
-  }
-
-  nav {
-    justify-content: space-between;
   }
 
   .nav-links {

@@ -43,21 +43,7 @@ strong {
   margin-top: 1rem;
 }
 
-/* main {
-  display: flex;
-  min-height: 100vh;
-  max-width: 120rem;
-  margin: 0 auto;
-} */
-
-/* .side-bar {
-  width: 30rem;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-} */
-
-@media (max-width: 767px) {
+@media (max-width: 920px) {
   main {
     display: flex;
     flex-direction: column;
