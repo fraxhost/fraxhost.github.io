@@ -49,3 +49,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     requestAnimationFrame(animation);
   });
 });
+
+const burger = document.getElementsByClassName("burger")[0];
+const navLinks = document.getElementsByClassName("nav-links")[0];
+
+burger.addEventListener("click", () => {
+  navLinks.classList.toggle("nav-active");
+});
