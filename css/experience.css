@@ -26,6 +26,7 @@ ul li {
   font-weight: 500;
   color: var(--foreground-color-20);
   display: flex;
+  justify-content: space-between;
 }
 
 .experience-details {
@@ -48,4 +49,9 @@ ul li {
 
 .experience-details li {
   font-size: 1.6rem;
+}
+
+.experience-date {
+  font-size: 1.6rem;
+  font-style: italic;
 }
