@@ -15,8 +15,14 @@
 }
 
 .extracurricular-place {
+  display: flex;
+  justify-content: space-between;
+}
+
+.extracurricular-place p {
   font-size: 1.8rem;
   font-weight: 500;
+  color: var(--foreground-color-20);
 }
 
 .extracurricular-description {
@@ -28,4 +34,9 @@
 .extracurricular-description strong {
   font-size: 1.7rem;
   font-weight: 500;
+}
+
+.extracurricular-date {
+  font-size: 1.6rem !important;
+  font-style: italic;
 }

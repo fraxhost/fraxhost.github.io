@@ -27,6 +27,17 @@ ul {
   font-size: 1.8rem;
   font-weight: 500;
   color: var(--foreground-color-20);
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-organization p {
+  font-size: 1.6rem;
+}
+
+.skill-organization a {
+  font-size: 1.6rem;
+  color: var(--secondary-color);
 }
 
 .skill-icons {
@@ -40,8 +51,18 @@ ul {
   gap: 1rem;
 }
 
+.skill-subheading {
+  display: flex;
+  justify-content: space-between;
+}
+
 .skill-subheading p {
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--foreground-color-30);
+}
+
+.skill-date {
+  font-size: 1.6rem;
+  font-style: italic;
 }

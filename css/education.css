@@ -17,6 +17,14 @@
 .education-place {
   font-size: 1.8rem;
   font-weight: 500;
+  color: var(--foreground-color-20);
+  display: flex;
+  justify-content: space-between;
+}
+
+.education-place p {
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .education-grade {
@@ -37,4 +45,9 @@
 
 .education-courses li {
   font-size: 1.7rem;
+}
+
+.education-date {
+  font-size: 1.6rem !important;
+  font-style: italic;
 }
