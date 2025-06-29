@@ -12,6 +12,7 @@ strong {
 .about-introduction,
 .about-overall-experience,
 .about-research-experience {
+  text-align: justify;
   font-size: 1.8rem;
   font-weight: 300;
   line-height: 1.3;
