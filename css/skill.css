@@ -54,6 +54,7 @@ ul {
 .skill-subheading {
   display: flex;
   justify-content: space-between;
+  text-align: justify;
 }
 
 .skill-subheading p {
