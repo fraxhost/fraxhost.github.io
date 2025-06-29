@@ -33,6 +33,7 @@ ul li {
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
+  text-align: justify;
   gap: 1rem;
 }
 
