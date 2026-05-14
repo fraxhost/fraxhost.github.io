@@ -192,6 +192,50 @@ nav ul li {
 /* @media (max-width: 1024px) and (min-width: 768px) {
 } */
 
+/* Shared rules across pages */
+
+.education-title,
+.experience-title,
+.project-title,
+.skill-title,
+.extracurricular-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.education-list,
+.experience-list,
+.extracurricular-list {
+  font-size: 3rem;
+}
+
+.education-degree,
+.extracurricular-position {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.education-place,
+.experience-place,
+.experience-place a,
+.skill-organization {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--foreground-color-20);
+  display: flex;
+  justify-content: space-between;
+}
+
+.education-date,
+.experience-date,
+.skill-date,
+.extracurricular-date {
+  font-size: 1.6rem !important;
+  font-style: italic;
+}
+
 /* For mobile devices (screen width less than 768px) */
 @media (max-width: 920px) {
   nav {

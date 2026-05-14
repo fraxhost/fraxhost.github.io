@@ -8,26 +8,41 @@ This is a static personal portfolio website for Ahmed Ryan, deployed via GitHub 
 
 ## Local Development
 
-Open `index.html` directly in a browser, or use any static file server:
+The site uses Jekyll (natively supported by GitHub Pages — no build step needed on push). To run locally:
 
 ```bash
-python3 -m http.server 8000
+gem install jekyll bundler
+jekyll serve
 ```
 
-Note: CSS uses root-relative paths (`/css/style.css`, `/assets/...`), so opening HTML files directly via `file://` will break styles. Use a local server instead.
+Then open `http://localhost:4000`. Do not open HTML files directly via `file://` — CSS uses root-relative paths that only resolve through a server.
 
 ## Architecture
 
-The site is a multi-page app with a shared layout pattern repeated across all pages:
+The site uses Jekyll templating to eliminate duplicated HTML across pages.
 
-- **`index.html`** — About Me (homepage)
-- **`html/`** — All other pages: `education.html`, `experience.html`, `project.html`, `skill.html`, `extracurricular.html`
-- **`css/style.css`** — Global styles: CSS variables, nav, sidebar, footer, responsive breakpoints
-- **`css/<page>.css`** — Page-specific styles (e.g. `education.css`, `project.css`)
-- **`js/script.js`** — Shared JS: burger menu toggle, scroll-to-top button, smooth anchor scrolling
-- **`assets/images/`** — Photos and favicon; **`assets/fonts/`** — Local fonts
+- **`_layouts/default.html`** — Single shared layout: `<head>`, nav, sidebar, footer, and JS import. All pages use this via `layout: default` front matter.
+- **`_config.yml`** — Minimal Jekyll config (title, description).
+- **`index.html`** — About Me (homepage); contains only its `.main-body` content with front matter.
+- **`html/`** — All other pages: `education.html`, `experience.html`, `project.html`, `skill.html`, `extracurricular.html`. Each contains only its `.main-body` content with front matter.
+- **`css/style.css`** — Global styles: CSS variables, nav, sidebar, footer, responsive breakpoints, **and shared cross-page rules** (section titles, dates, info rows, secondary headings).
+- **`css/<page>.css`** — Page-specific styles only; linked via `page_css` front matter variable.
+- **`js/script.js`** — Shared JS: burger menu toggle, scroll-to-top button, smooth anchor scrolling.
+- **`assets/images/`** — Photos and favicon; **`assets/fonts/`** — Local fonts.
 
-Each page follows the same structure: sticky nav → two-column `<main>` (`.side-bar` + `.main-body`) → footer. The sidebar (profile card + links) is sticky within its column and hidden on mobile (<920px) via media query.
+### Page front matter
+
+Each page declares:
+```yaml
+---
+layout: default
+page_name: Education        # shown as mobile nav label
+active: education           # which nav link gets class="selected"
+page_css: education         # loads /css/education.css (omit if none)
+---
+```
+
+The layout renders `{{ content }}` inside `.main-body`, so page files contain only their unique inner content.
 
 ## Design System
 

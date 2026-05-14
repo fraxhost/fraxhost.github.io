@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    {% if page.page_css %}
+    <link rel="stylesheet" href="/css/{{ page.page_css }}.css" />
+    {% endif %}
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ahmed Ryan</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BH8V4Y4GWW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-BH8V4Y4GWW");
+    </script>
+  </head>
+  <body id="body">
+    <!-- navbar begins -->
+    <nav>
+      <div class="page-name">{{ page.page_name }}</div>
+      <ul class="nav-links">
+        <li>
+          <a href="/"{% if page.active == "about" %} class="selected"{% endif %}>About Me</a>
+        </li>
+        <li>
+          <a href="/html/education.html"{% if page.active == "education" %} class="selected"{% endif %}>Education</a>
+        </li>
+        <li>
+          <a href="/html/experience.html"{% if page.active == "experience" %} class="selected"{% endif %}>Experience</a>
+        </li>
+        <li>
+          <a href="/html/project.html"{% if page.active == "project" %} class="selected"{% endif %}>Projects</a>
+        </li>
+        <li>
+          <a href="/html/skill.html"{% if page.active == "skill" %} class="selected"{% endif %}>Skills</a>
+        </li>
+        <li>
+          <a href="/html/extracurricular.html"{% if page.active == "extracurricular" %} class="selected"{% endif %}>Extracurriculars</a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+    <!-- navbar ends -->
+
+    <main>
+      <!-- sidebar begins -->
+      <div class="side-bar">
+        <div class="profile">
+          <div class="profile-info">
+            <img
+              class="profile-img"
+              src="/assets/images/ryan.jpg"
+              alt="Ryan's Photo"
+            />
+            <p class="profile-name">Ahmed Ryan</p>
+            <p class="profession">Software Engineer</p>
+          </div>
+
+          <div class="profile-links">
+            <a
+              class="profile-link"
+              href="https://www.cefalo.com/en/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-briefcase profile-icon"> </i>
+              <p>Cefalo</p>
+            </a>
+
+            <a
+              class="profile-link"
+              href="mailto:bsse1011@iit.du.ac.bd"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-envelope profile-icon"> </i>
+              <p>Email</p>
+            </a>
+
+            <a
+              class="profile-link"
+              href="https://github.com/fraxhost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github profile-icon"> </i>
+              <p>GitHub</p>
+            </a>
+
+            <a
+              class="profile-link"
+              href="https://www.linkedin.com/in/fraxhost/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-linkedin profile-icon"> </i>
+              <p>LinkedIn</p>
+            </a>
+          </div>
+
+          <button onclick="scrollToTop()" class="scroll-btn">
+            <i
+              class="fa fa-chevron-circle-up fa-xl"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <!-- sidebar ends -->
+
+      <!-- main body section begins -->
+      <div class="main-body">
+        {{ content }}
+      </div>
+      <!-- main body section ends -->
+    </main>
+
+    <!-- footer begins -->
+    <footer class="footer">
+      <p>Ahmed Ryan © 2024</p>
+    </footer>
+    <!-- footer ends -->
+
+    <!-- javascript imports -->
+    <script src="/js/script.js"></script>
+  </body>
+</html>

@@ -1,236 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/education.css" />
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Ahmed Ryan</title>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BH8V4Y4GWW"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+---
+layout: default
+page_name: Education
+active: education
+page_css: education
+---
 
-      gtag("config", "G-BH8V4Y4GWW");
-    </script>
-  </head>
-  <body>
-    <!-- navbar begins -->
-    <nav>
-      <div class="page-name">Education</div>
-      <ul class="nav-links">
-        <li>
-          <a href="/">About Me</a>
-        </li>
-        <li>
-          <a href="/html/education.html" class="selected">Education</a>
-        </li>
-        <li>
-          <a href="/html/experience.html">Experience</a>
-        </li>
-        <li>
-          <a href="/html/project.html">Projects</a>
-        </li>
-        <li>
-          <a href="/html/skill.html">Skills</a>
-        </li>
-        <li>
-          <a href="/html/extracurricular.html">Extracurriculars</a>
-        </li>
+<br />
+<br />
+<div class="education-title">Academics</div>
+
+<ul class="education-list">
+  <li id="university-education-section">
+    <div class="education-degree">
+      Bachelor of Science in Software Engineering
+    </div>
+    <div class="education-place">
+      <p>Institute of Information Technology, University of Dhaka</p>
+      <p class="education-date">2018 - 2022</p>
+    </div>
+
+    <div class="education-grade">
+      CGPA: 3.68 / 4.00 (3.92 in the last 4 semesters)
+    </div>
+
+    <div class="education-courses">
+      <p>Notable Courses</p>
+      <ul>
+        <li>CSE 211: Computer Organization</li>
+        <li>CSE 311: Computer Networking</li>
+        <li>CSE 401: Operating System and System Programming</li>
+        <li>CSE 411: Information Security</li>
+        <li>CSE 502: Web Technology</li>
+        <li>CSE 601: Distributed Systems</li>
+        <li>CSE 605: Software Testing and Quality Assurance</li>
+        <li>CSE 612: Software Security</li>
+        <li>CSE 829: Pattern Recognition and Image Processing</li>
+        <li>CSE 837: Machine Learning</li>
       </ul>
-      <div class="burger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-    </nav>
-    <!-- navbar ends -->
+    </div>
+  </li>
 
-    <main>
-      <!-- sidebar begins -->
-      <div class="side-bar">
-        <div class="profile">
-          <div class="profile-info">
-            <img
-              class="profile-img"
-              src="/assets/images/ryan.jpg"
-              alt="Ryan's Photo"
-            />
-            <p class="profile-name">Ahmed Ryan</p>
-            <p class="profession">Software Engineer</p>
-          </div>
+  <li id="college-education-section">
+    <div class="education-degree">
+      Higher Secondary Certificate
+    </div>
+    <div class="education-place">
+      <p>Notre Dame College, Dhaka</p>
+      <p class="education-date">2017</p>
+    </div>
 
-          <div class="profile-links">
-            <a
-              class="profile-link"
-              href="https://www.cefalo.com/en/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fas fa-briefcase profile-icon"> </i>
-              <p>Cefalo</p>
-            </a>
+    <div class="education-grade">
+      Grade: 5.00 / 5.00 (Scholarship in General Category)
+    </div>
+  </li>
 
-            <a
-              class="profile-link"
-              href="mailto:bsse1011@iit.du.ac.bd"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fas fa-envelope profile-icon"> </i>
-              <p>Email</p>
-            </a>
+  <li id="high-school-education-section">
+    <div class="education-degree">
+      Secondary School Certificate
+    </div>
+    <div class="education-place">
+      <p>Military Collegiate School, Khulna</p>
+      <p class="education-date">2015</p>
+    </div>
 
-            <a
-              class="profile-link"
-              href="https://github.com/fraxhost"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-github profile-icon"> </i>
-              <p>GitHub</p>
-            </a>
+    <div class="education-grade">
+      Grade: 5.00 / 5.00 (Scholarship in General Category)
+    </div>
+  </li>
 
-            <a
-              class="profile-link"
-              href="https://www.linkedin.com/in/fraxhost/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-linkedin profile-icon"> </i>
-              <p>LinkedIn</p>
-            </a>
-          </div>
+  <li id="school-education-section">
+    <div class="education-degree">
+      Junior School Certificate
+    </div>
+    <div class="education-place">
+      <p>Military Collegiate School, Khulna</p>
+      <p class="education-date">2012</p>
+    </div>
 
-          <button onclick="scrollToTop()" class="scroll-btn">
-            <i class="fa fa-chevron-circle-up fa-xl" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
-      <!-- sidebar ends -->
-
-      <!-- main body section begins -->
-      <div class="main-body">
-        <br />
-        <br />
-        <div class="education-title">Academics</div>
-
-        <ul class="education-list">
-          <li id="university-education-section">
-            <div class="education-degree">
-              <!-- <i class="fa-solid fa-graduation-cap"></i> -->
-              Bachelor of Science in Software Engineering
-            </div>
-            <div class="education-place">
-              <!-- <i class="fa-solid fa-location-dot"></i> -->
-              <!-- <i class="fa-solid fa-map-location-dot"></i> -->
-              <p>Institute of Information Technology, University of Dhaka</p>
-              <p class="education-date">2018 - 2022</p>
-            </div>
-
-            <div class="education-grade">
-              <!-- <i class="fa-solid fa-bullseye"></i> -->
-              CGPA: 3.68 / 4.00 (3.92 in the last 4 semesters)
-            </div>
-
-            <div class="education-courses">
-              <p>Notable Courses</p>
-              <ul>
-                <li>CSE 211: Computer Organization</li>
-                <li>CSE 311: Computer Networking</li>
-                <li>CSE 401: Operating System and System Programming</li>
-                <li>CSE 411: Information Security</li>
-                <li>CSE 502: Web Technology</li>
-                <li>CSE 601: Distributed Systems</li>
-                <li>CSE 605: Software Testing and Quality Assurance</li>
-                <li>CSE 612: Software Security</li>
-                <li>CSE 829: Pattern Recognition and Image Processing</li>
-                <li>CSE 837: Machine Learning</li>
-              </ul>
-            </div>
-          </li>
-
-          <li id="college-education-section">
-            <div class="education-degree">
-              <!-- <i class="fa-solid fa-graduation-cap"></i> -->
-              Higher Secondary Certificate
-            </div>
-            <div class="education-place">
-              <!-- <i class="fa-solid fa-location-dot"></i> -->
-              <!-- <i class="fa-solid fa-map-location-dot"></i> -->
-              <p>Notre Dame College, Dhaka</p>
-              <p class="education-date">2017</p>
-            </div>
-
-            <div class="education-grade">
-              <!-- <i class="fa-solid fa-bullseye"></i> -->
-              Grade: 5.00 / 5.00 (Scholarship in General Category)
-            </div>
-          </li>
-
-          <li id="high-school-education-section">
-            <div class="education-degree">
-              <!-- <i class="fa-solid fa-graduation-cap"></i> -->
-              Secondary School Certificate
-            </div>
-            <div class="education-place">
-              <!-- <i class="fa-solid fa-location-dot"></i> -->
-              <!-- <i class="fa-solid fa-map-location-dot"></i> -->
-              <p>Military Collegiate School, Khulna</p>
-              <p class="education-date">2015</p>
-            </div>
-
-            <div class="education-grade">
-              <!-- <i class="fa-solid fa-bullseye"></i> -->
-              Grade: 5.00 / 5.00 (Scholarship in General Category)
-            </div>
-          </li>
-
-          <li id="school-education-section">
-            <div class="education-degree">
-              <!-- <i class="fa-solid fa-graduation-cap"></i> -->
-              Junior School Certificate
-            </div>
-            <div class="education-place">
-              <!-- <i class="fa-solid fa-location-dot"></i> -->
-              <!-- <i class="fa-solid fa-map-location-dot"></i> -->
-              <p>Military Collegiate School, Khulna</p>
-              <p class="education-date">2012</p>
-            </div>
-
-            <div class="education-grade">
-              <!-- <i class="fa-solid fa-bullseye"></i> -->
-              Grade: 5.00 / 5.00 (Scholarship in Talentpool Category)
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- main body section ends -->
-    </main>
-
-    <!-- footer begins -->
-    <footer id="footer" class="footer">
-      <p>Ahmed Ryan © 2024</p>
-    </footer>
-    <!-- footer ends -->
-
-    <!-- javascript imports -->
-    <script src="/js/script.js"></script>
-  </body>
-</html>
+    <div class="education-grade">
+      Grade: 5.00 / 5.00 (Scholarship in Talentpool Category)
+    </div>
+  </li>
+</ul>

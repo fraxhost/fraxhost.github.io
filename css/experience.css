@@ -2,31 +2,11 @@ ul li {
   font-size: 2rem;
 }
 
-.experience-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: underline;
-}
-
-.experience-list {
-  font-size: 3rem;
-}
-
 .experience-designation {
   font-size: 2rem;
   font-weight: 600;
   color: var(--foreground-color-10);
   margin-top: 0.5rem;
-}
-
-.experience-place,
-.experience-place a {
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: var(--foreground-color-20);
-  display: flex;
-  justify-content: space-between;
 }
 
 .experience-details {
@@ -50,9 +30,4 @@ ul li {
 
 .experience-details li {
   font-size: 1.6rem;
-}
-
-.experience-date {
-  font-size: 1.6rem;
-  font-style: italic;
 }
