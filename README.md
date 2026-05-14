@@ -1,66 +1,79 @@
 # 🌐 fraxhost.github.io
 
-Welcome to the source code for **[fraxhost.github.io](https://fraxhost.github.io/)** — a sleek, responsive personal portfolio website built with HTML, CSS, and JavaScript. This project showcases web development skills and highlights key competencies and projects.
+Welcome to the source code for **[fraxhost.github.io](https://fraxhost.github.io/)** — a sleek, responsive personal portfolio website. Built with Jekyll, HTML, CSS, and JavaScript, and deployed automatically via GitHub Pages.
 
 ---
 
 ## 📁 Project Structure
 
-├── assets/ # Images, icons, fonts <br>
-├── css/ # Custom stylesheets <br>
-├── js/ # Interactive JavaScript features <br> 
-├── index.html # Main homepage <br> 
-├── skill.html # Skills overview section <br> 
-└── README.md # You are here! <br>
+```
+├── _layouts/
+│   └── default.html      # Shared layout (nav, sidebar, footer, head)
+├── _site/                # Jekyll build output (git-ignored)
+├── assets/               # Images, icons, fonts
+├── css/                  # Stylesheets (style.css = global + shared rules)
+├── html/                 # Inner pages (education, experience, project, skill, extracurricular)
+├── js/                   # Interactive JavaScript features
+├── _config.yml           # Jekyll configuration
+└── index.html            # Homepage (About Me)
+```
 
 ---
 
 ## ✨ Features
 
 - Responsive design for mobile and desktop
-- Clean, modern layout
-- Modular file structure
-- Fast performance and simple deployment via GitHub Pages
+- Jekyll templating — nav, sidebar, and footer defined once in `_layouts/default.html`
+- Modular CSS — shared rules in `style.css`, page-specific rules in individual CSS files
+- Automatic deployment via GitHub Pages on every push to `main`
 
 ---
 
 ## 🚀 Getting Started
 
-To view the site locally:
+### Prerequisites
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/fraxhost/fraxhost.github.io.git
-   ```
-2. Open index.html in your browser.
+Install Ruby 3+ and Jekyll:
 
-No dependencies or build tools required!
+```bash
+brew install ruby
+export PATH="/opt/homebrew/lib/ruby/gems/$(ruby -e 'puts RUBY_VERSION.match(/\d+\.\d+/)[0]').0/bin:/opt/homebrew/opt/ruby/bin:$PATH"
+gem install jekyll bundler
+```
+
+### Run locally
+
+```bash
+git clone https://github.com/fraxhost/fraxhost.github.io.git
+cd fraxhost.github.io
+jekyll serve --livereload
+```
+
+Then open [http://127.0.0.1:4000](http://127.0.0.1:4000).
 
 ---
 
 ## 🛠️ Technologies Used
 
-HTML5 — Semantic structure
-
-CSS3 — Styling and layout
-
-JavaScript — Interactivity (mobile responsiveness and dynamic content)
+- **Jekyll** — Templating and static site generation
+- **HTML5** — Semantic structure
+- **CSS3** — Styling and layout
+- **JavaScript** — Interactivity (burger menu, scroll-to-top, smooth anchors)
 
 ---
 
 ## 📌 Deployment
 
-This site is deployed using GitHub Pages. Any changes pushed to the main branch will automatically update the live site.
+Deployed via GitHub Pages. Pushing to `main` triggers an automatic Jekyll build and updates the live site.
 
 ---
 
 📄 License
 
-This project is open-source. Feel free to fork it and customize your own site! If you'd like to contribute or collaborate, feel free to reach out.
+This project is open-source. Feel free to fork it and customize your own site!
 
 ---
 
 📬 Contact
 
 Created by [fraxhost](mailto:ahmedryanfaiyaz@gmail.com). Drop a message or fork the project if you find it helpful!
-
