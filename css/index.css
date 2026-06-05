@@ -13,8 +13,8 @@
 }
 
 .hero-image {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
@@ -47,7 +47,6 @@
 }
 
 /* ─── About body ────────────────────────────────────── */
-
 
 .about-para {
   font-size: 1rem;
@@ -94,7 +93,6 @@
     aspect-ratio: 1 / 1;
     flex-shrink: 0;
   }
-
 }
 
 @media screen and (min-width: 800px) {
