@@ -50,7 +50,8 @@
     <!-- Mobile nav dropdown -->
     <div class="navbar-menu" id="navbar-menu">
       <a href="/"{% if page.active == "about" %} class="active"{% endif %}>About</a>
-      <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>Research &amp; Projects</a>
+      <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>Projects</a>
+      <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>Publications</a>
       <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>Experience</a>
       <a href="/html/education.html"{% if page.active == "education" %} class="active"{% endif %}>Education</a>
       <a href="/html/skill.html"{% if page.active == "skill" %} class="active"{% endif %}>Skills &amp; Certs</a>
@@ -85,7 +86,10 @@
               <i class="fas fa-user fa-fw"></i> About
             </a>
             <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>
-              <i class="fas fa-flask fa-fw"></i> Research &amp; Projects
+              <i class="fas fa-flask fa-fw"></i> Projects
+            </a>
+            <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>
+              <i class="fas fa-file-alt fa-fw"></i> Publications
             </a>
             <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>
               <i class="fas fa-briefcase fa-fw"></i> Experience
