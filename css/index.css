@@ -80,7 +80,7 @@
 
 @media screen and (min-width: 600px) {
   .hero-container {
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
@@ -93,28 +93,6 @@
     flex-shrink: 0;
   }
 
-  .hero-image-container {
-    position: relative;
-  }
-
-  /* Pink circle behind photo — Tania's signature detail */
-  .hero-image-container::before {
-    content: "";
-    position: absolute;
-    top: -12px;
-    left: -12px;
-    width: calc(100% + 24px);
-    height: calc(100% + 24px);
-    border-radius: 50%;
-    background: var(--color-primary);
-    opacity: 0.15;
-    z-index: 0;
-  }
-
-  .hero-image {
-    position: relative;
-    z-index: 1;
-  }
 }
 
 @media screen and (min-width: 800px) {
