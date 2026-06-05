@@ -1,58 +1,80 @@
-let scrollButton = document.getElementsByClassName("scroll-btn")[0];
+// ── Scroll-to-top ────────────────────────────────────────
+const scrollBtn = document.getElementById('scroll-btn');
 
-window.onscroll = function () {
-  console.log(scrollButton.style.display);
-
-  if (window.scrollY > 20) {
-    scrollButton.style.display = "block";
-  } else {
-    scrollButton.style.display = "none";
+window.addEventListener('scroll', () => {
+  if (scrollBtn) {
+    scrollBtn.style.display = window.scrollY > 200 ? 'flex' : 'none';
   }
-};
+});
 
-const scrollToTop = function () {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
+// ── Smooth anchor scroll ─────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
+  anchor.addEventListener('click', function (e) {
+    const target = document.getElementById(this.getAttribute('href').substring(1));
+    if (!target) return;
     e.preventDefault();
-
-    const targetId = this.getAttribute("href").substring(1);
-    const targetElement = document.getElementById(targetId);
-
-    window.scrollTo({
-      top: targetElement.offsetTop,
-      behavior: "smooth",
-    });
-
-    const scrollDuration = 500; // Duration in milliseconds
-    const start = window.scrollY; // Use window.scrollY instead
-    const distance = targetElement.offsetTop - start - 70;
-    let startTime = null;
-
-    function animation(currentTime) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const run = ease(timeElapsed, start, distance, scrollDuration);
-      window.scrollTo(0, run);
-      if (timeElapsed < scrollDuration) requestAnimationFrame(animation);
-    }
-
-    function ease(t, b, c, d) {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
-    }
-
-    requestAnimationFrame(animation);
+    target.scrollIntoView({ behavior: 'smooth' });
   });
 });
 
-const burger = document.getElementsByClassName("burger")[0];
-const navLinks = document.getElementsByClassName("nav-links")[0];
+// ── Mobile nav toggle ────────────────────────────────────
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('navbar-menu');
 
-burger.addEventListener("click", () => {
-  navLinks.classList.toggle("nav-active");
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+  });
+  // Close menu when a link is tapped
+  navMenu.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => navMenu.classList.remove('open'));
+  });
+}
+
+// ── Theme toggle (color-scheme approach) ─────────────────
+// light-dark() CSS function reads the color-scheme property.
+// Default is light; toggling sets it to dark.
+
+function getScheme() {
+  return localStorage.getItem('colorScheme') || 'dark';
+}
+
+function applyScheme(scheme) {
+  document.documentElement.style.colorScheme = scheme;
+  localStorage.setItem('colorScheme', scheme);
+
+  // Update both toggle buttons (sidebar + mobile navbar)
+  const icons = [
+    document.getElementById('theme-icon'),
+    document.getElementById('theme-icon-sidebar'),
+  ];
+  icons.forEach((icon) => {
+    if (!icon) return;
+    icon.className = scheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  });
+
+  const btns = [
+    document.getElementById('theme-toggle'),
+    document.getElementById('theme-toggle-sidebar'),
+  ];
+  btns.forEach((btn) => {
+    if (!btn) return;
+    btn.setAttribute('aria-label', scheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  });
+}
+
+// Apply on page load
+applyScheme(getScheme());
+
+// Wire up both toggle buttons
+['theme-toggle', 'theme-toggle-sidebar'].forEach((id) => {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    applyScheme(getScheme() === 'dark' ? 'light' : 'dark');
+  });
 });

@@ -1,24 +1,40 @@
+.education-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--color-border);
+  list-style: none;
+}
+.education-list li:first-child { padding-top: 0; }
+
 .education-place p {
-  font-size: 1.8rem;
+  font-size: 0.95rem;
   font-weight: 500;
+  color: var(--color-text-muted);
 }
 
 .education-grade {
-  font-size: 1.7rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+  margin-bottom: 0.4rem;
 }
 
-.education-courses {
-  margin-bottom: 2rem;
-}
+.education-courses { margin-bottom: 0.5rem; }
 
 .education-courses p {
-  font-size: 1.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  text-decoration: underline;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .education-courses li {
-  font-size: 1.7rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  list-style: disc;
+  margin-left: 1.25rem;
 }

@@ -1,33 +1,47 @@
-ul li {
-  font-size: 2rem;
+.experience-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--color-border);
+  list-style: none;
 }
+.experience-list li:first-child { padding-top: 0; }
 
 .experience-designation {
-  font-size: 2rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--foreground-color-10);
-  margin-top: 0.5rem;
+  color: var(--color-text-emphasized);
+  margin-top: 0.2rem;
 }
 
+.experience-place { font-size: 0.9rem; }
+
+.experience-place a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+.experience-place a:hover { color: var(--color-primary); }
+
 .experience-details {
-  margin-bottom: 0.5rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
   display: flex;
   flex-direction: row;
-  text-align: justify;
   gap: 1rem;
 }
 
 .experience-details p {
-  font-size: 1.6rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  color: var(--foreground-color-30);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
 }
 
 .experience-details ul {
-  margin-left: 2rem;
+  margin-left: 1.25rem;
   padding-left: 0;
 }
 
 .experience-details li {
-  font-size: 1.6rem;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  line-height: 1.7;
 }

@@ -8,141 +8,169 @@
     <link rel="stylesheet" href="/css/{{ page.page_css }}.css" />
     {% endif %}
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <title>Ahmed Ryan</title>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BH8V4Y4GWW"
-    ></script>
+    <script>
+      (function () {
+        var s = localStorage.getItem("colorScheme");
+        if (s) document.documentElement.style.colorScheme = s;
+      })();
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH8V4Y4GWW"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
       gtag("config", "G-BH8V4Y4GWW");
     </script>
   </head>
-  <body id="body">
-    <!-- navbar begins -->
-    <nav>
-      <div class="page-name">{{ page.page_name }}</div>
-      <ul class="nav-links">
-        <li>
-          <a href="/"{% if page.active == "about" %} class="selected"{% endif %}>About Me</a>
-        </li>
-        <li>
-          <a href="/html/education.html"{% if page.active == "education" %} class="selected"{% endif %}>Education</a>
-        </li>
-        <li>
-          <a href="/html/experience.html"{% if page.active == "experience" %} class="selected"{% endif %}>Experience</a>
-        </li>
-        <li>
-          <a href="/html/project.html"{% if page.active == "project" %} class="selected"{% endif %}>Projects</a>
-        </li>
-        <li>
-          <a href="/html/skill.html"{% if page.active == "skill" %} class="selected"{% endif %}>Skills</a>
-        </li>
-        <li>
-          <a href="/html/extracurricular.html"{% if page.active == "extracurricular" %} class="selected"{% endif %}>Extracurriculars</a>
-        </li>
-      </ul>
-      <div class="burger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+  <body>
+
+    <!-- Mobile navbar (hidden ≥ 1020px) -->
+    <nav class="navbar">
+      <div class="navbar-title">
+        <a class="navbar-title-link" href="/">
+          <img src="/assets/images/favicon.png" class="navbar-logo-icon" alt="Ahmed Ryan" />
+          Ahmed Ryan
+        </a>
+      </div>
+      <div class="navbar-right">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <button class="icon-btn" id="nav-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </nav>
-    <!-- navbar ends -->
 
-    <main>
-      <!-- sidebar begins -->
-      <div class="side-bar">
-        <div class="profile">
-          <div class="profile-info">
-            <img
-              class="profile-img"
-              src="/assets/images/ryan.jpg"
-              alt="Ryan's Photo"
-            />
-            <p class="profile-name">Ahmed Ryan</p>
-            <p class="profession">Software Engineer</p>
+    <!-- Mobile nav dropdown -->
+    <div class="navbar-menu" id="navbar-menu">
+      <a href="/"{% if page.active == "about" %} class="active"{% endif %}>About</a>
+      <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>Publications</a>
+      <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>Projects</a>
+      <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>Experience</a>
+      <a href="/html/education.html"{% if page.active == "education" %} class="active"{% endif %}>Education</a>
+      <a href="/html/skill.html"{% if page.active == "skill" %} class="active"{% endif %}>Skills &amp; Certs</a>
+      <a href="/html/extracurricular.html"{% if page.active == "extracurricular" %} class="active"{% endif %}>Service</a>
+    </div>
+
+    <!-- Layout -->
+    <div class="layout">
+
+      <!-- Desktop sidebar (shown ≥ 1020px) -->
+      <aside class="sidebar">
+
+        <!-- Name + icon + theme toggle -->
+        <div class="sidebar-section">
+          <div class="sidebar-name-row">
+            <a class="sidebar-title-link" href="/">
+              <img src="/assets/images/favicon.png" class="sidebar-avatar-icon" alt="Ahmed Ryan" />
+              <span class="site-name">Ahmed Ryan</span>
+            </a>
+            <button class="icon-btn" id="theme-toggle-sidebar" aria-label="Toggle theme">
+              <i class="fas fa-moon" id="theme-icon-sidebar"></i>
+            </button>
           </div>
-
-          <div class="profile-links">
-            <a
-              class="profile-link"
-              href="https://www.cefalo.com/en/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fas fa-briefcase profile-icon"> </i>
-              <p>Cefalo</p>
-            </a>
-
-            <a
-              class="profile-link"
-              href="mailto:bsse1011@iit.du.ac.bd"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fas fa-envelope profile-icon"> </i>
-              <p>Email</p>
-            </a>
-
-            <a
-              class="profile-link"
-              href="https://github.com/fraxhost"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-github profile-icon"> </i>
-              <p>GitHub</p>
-            </a>
-
-            <a
-              class="profile-link"
-              href="https://www.linkedin.com/in/fraxhost/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-linkedin profile-icon"> </i>
-              <p>LinkedIn</p>
-            </a>
-          </div>
-
-          <button onclick="scrollToTop()" class="scroll-btn">
-            <i
-              class="fa fa-chevron-circle-up fa-xl"
-              aria-hidden="true"
-            ></i>
-          </button>
+          <p class="sidebar-bio">PhD Candidate, Computer Science &middot; University of Alabama</p>
         </div>
+
+        <!-- Navigation -->
+        <div class="sidebar-section">
+          <h2>Navigation</h2>
+          <nav class="sidebar-nav-links">
+            <a href="/"{% if page.active == "about" %} class="active"{% endif %}>
+              <i class="fas fa-user fa-fw" style="color:#58a6ff"></i> About
+            </a>
+            <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>
+              <i class="fas fa-file-alt fa-fw" style="color:#ffa657"></i> Publications
+            </a>
+            <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>
+              <i class="fas fa-laptop fa-fw" style="color:#3fb950"></i> Projects
+            </a>
+            <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>
+              <i class="fas fa-briefcase fa-fw" style="color:#d2a8ff"></i> Experience
+            </a>
+            <a href="/html/education.html"{% if page.active == "education" %} class="active"{% endif %}>
+              <i class="fas fa-graduation-cap fa-fw" style="color:#ff7b72"></i> Education
+            </a>
+            <a href="/html/skill.html"{% if page.active == "skill" %} class="active"{% endif %}>
+              <i class="fas fa-code fa-fw" style="color:#79c0ff"></i> Skills &amp; Certs
+            </a>
+            <a href="/html/extracurricular.html"{% if page.active == "extracurricular" %} class="active"{% endif %}>
+              <i class="fas fa-handshake fa-fw" style="color:#f778ba"></i> Service
+            </a>
+          </nav>
+        </div>
+
+        <!-- Research areas -->
+        <div class="sidebar-section">
+          <h2>Research Areas</h2>
+          <div class="sidebar-tags">
+            <span class="sidebar-tag">Supply Chain</span>
+            <span class="sidebar-tag">ML &times; Security</span>
+            <span class="sidebar-tag">Threat Intel</span>
+            <span class="sidebar-tag">Malware</span>
+            <span class="sidebar-tag">Vuln Research</span>
+          </div>
+        </div>
+
+        <!-- Connect -->
+        <div class="sidebar-section">
+          <h2>Connect</h2>
+          <div class="sidebar-links">
+            <a href="mailto:aryan9@crimson.ua.edu">
+              <i class="fas fa-envelope fa-fw" style="color:#ea4335"></i> aryan9@crimson.ua.edu
+            </a>
+            <a href="https://github.com/fraxhost" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github fa-fw" style="color:light-dark(#24292f, #e6edf3)"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/fraxhost/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin fa-fw" style="color:#0a66c2"></i> LinkedIn
+            </a>
+            <a href="https://cs.ua.edu/" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-university fa-fw" style="color:#9e1b32"></i> UA CS Dept.
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Main wrapper -->
+      <div class="main-wrapper">
+        <main>
+          <div class="main-content">{{ content }}</div>
+        </main>
+
+        <footer class="footer">
+          <div class="footer-inner">
+            <span class="footer-copy">Ahmed Ryan &copy; 2025</span>
+            <div class="footer-links">
+              <a href="mailto:aryan9@crimson.ua.edu" aria-label="Email">
+                <i class="fas fa-envelope" style="color:#ea4335"></i>
+              </a>
+              <a href="https://github.com/fraxhost" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fa-brands fa-github" style="color:light-dark(#24292f, #e6edf3)"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/fraxhost/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin" style="color:#0a66c2"></i>
+              </a>
+              <a href="https://cs.ua.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Alabama">
+                <i class="fas fa-graduation-cap" style="color:#9e1b32"></i>
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
-      <!-- sidebar ends -->
 
-      <!-- main body section begins -->
-      <div class="main-body">
-        {{ content }}
-      </div>
-      <!-- main body section ends -->
-    </main>
+    </div><!-- /.layout -->
 
-    <!-- footer begins -->
-    <footer class="footer">
-      <p>Ahmed Ryan © 2024</p>
-    </footer>
-    <!-- footer ends -->
+    <!-- Scroll-to-top -->
+    <button class="scroll-btn" id="scroll-btn" onclick="scrollToTop()" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
-    <!-- javascript imports -->
     <script src="/js/script.js"></script>
   </body>
 </html>

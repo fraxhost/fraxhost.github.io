@@ -1,45 +1,82 @@
 ul {
-  font-size: 3rem;
+  list-style: none;
+  padding: 0;
 }
 
 .skill-heading {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--foreground-color-10);
-  margin-top: 0.5rem;
+  color: var(--color-text-emphasized);
+  margin-top: 0.2rem;
+  display: block;
+  text-decoration: none;
+}
+a.skill-heading {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 4px;
+}
+a.skill-heading:hover {
+  text-decoration-color: var(--color-primary);
 }
 
 .skill-subtitle {
-  font-size: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0.75rem 0 0.4rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.skill-organization {
+  font-size: 0.88rem;
   font-weight: 500;
-  margin: 0.5rem 0 0.5rem 0;
-  color: var(--foreground-color-20);
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.15rem;
 }
-
-.skill-organization p {
-  font-size: 1.6rem;
-}
-
 .skill-organization a {
-  font-size: 1.6rem;
-  color: var(--secondary-color);
+  font-size: inherit;
+  color: var(--color-primary);
+  text-decoration: none;
 }
+.skill-organization a:hover { text-decoration: underline; }
 
 .skill-icons {
-  font-size: 2rem;
+  font-size: 0.9rem;
   font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.skill-icons img {
+  display: inline;
+  margin: 0.15rem 0.15rem 0.15rem 0;
+}
+
+.skill-cert-item {
+  border: 2px solid var(--color-border-card);
+  border-radius: var(--border-radius);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.7rem;
+  background: var(--color-background-card);
 }
 
 .skill-subheading {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  justify-content: space-between;
-  text-align: justify;
+  margin-top: 0.3rem;
 }
-
 .skill-subheading p {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--foreground-color-30);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.skill-subheading strong {
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--color-text-emphasized);
 }
