@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,8 +8,14 @@
     <link rel="stylesheet" href="/css/{{ page.page_css }}.css" />
     {% endif %}
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>Ahmed Ryan</title>
     <script>
       (function () {
@@ -17,21 +23,29 @@
         if (s) document.documentElement.style.colorScheme = s;
       })();
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH8V4Y4GWW"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BH8V4Y4GWW"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag("js", new Date());
       gtag("config", "G-BH8V4Y4GWW");
     </script>
   </head>
   <body>
-
     <!-- Mobile navbar (hidden ≥ 1020px) -->
     <nav class="navbar">
       <div class="navbar-title">
         <a class="navbar-title-link" href="/">
-          <img src="/assets/images/favicon.png" class="navbar-logo-icon" alt="Ahmed Ryan" />
+          <img
+            src="/assets/images/favicon.png"
+            class="navbar-logo-icon"
+            alt="Ahmed Ryan"
+          />
           Ahmed Ryan
         </a>
       </div>
@@ -47,59 +61,73 @@
 
     <!-- Mobile nav dropdown -->
     <div class="navbar-menu" id="navbar-menu">
-      <a href="/"{% if page.active == "about" %} class="active"{% endif %}>About</a>
-      <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>Publications</a>
-      <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>Projects</a>
-      <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>Experience</a>
-      <a href="/html/education.html"{% if page.active == "education" %} class="active"{% endif %}>Education</a>
-      <a href="/html/skill.html"{% if page.active == "skill" %} class="active"{% endif %}>Skills &amp; Certs</a>
-      <a href="/html/extracurricular.html"{% if page.active == "extracurricular" %} class="active"{% endif %}>Service</a>
+      <a href="/" {% if page.active == "about" %} class="active" {% endif %}>About</a>
+      <a href="/html/publication.html" {% if page.active == "publication" %} class="active" {% endif %}>Publications</a>
+      <a href="/html/project.html" {% if page.active == "project" %} class="active" {% endif %}>Projects</a>
+      <a href="/html/experience.html" {% if page.active == "experience" %} class="active" {% endif %}>Experience</a>
+      <a href="/html/education.html" {% if page.active == "education" %} class="active" {% endif %}>Education</a>
+      <a href="/html/skill.html" {% if page.active == "skill" %} class="active" {% endif %}>Skills &amp; Certs</a>
+      <a href="/html/extracurricular.html" {% if page.active == "extracurricular" %} class="active" {% endif %}>Service</a>
     </div>
 
     <!-- Layout -->
     <div class="layout">
-
       <!-- Desktop sidebar (shown ≥ 1020px) -->
       <aside class="sidebar">
-
         <!-- Name + icon + theme toggle -->
         <div class="sidebar-section">
           <div class="sidebar-name-row">
             <a class="sidebar-title-link" href="/">
-              <img src="/assets/images/favicon.png" class="sidebar-avatar-icon" alt="Ahmed Ryan" />
+              <img
+                src="/assets/images/favicon.png"
+                class="sidebar-avatar-icon"
+                alt="Ahmed Ryan"
+              />
               <span class="site-name">Ahmed Ryan</span>
             </a>
-            <button class="icon-btn" id="theme-toggle-sidebar" aria-label="Toggle theme">
+            <button
+              class="icon-btn"
+              id="theme-toggle-sidebar"
+              aria-label="Toggle theme"
+            >
               <i class="fas fa-moon" id="theme-icon-sidebar"></i>
             </button>
           </div>
-          <p class="sidebar-bio">PhD Candidate, Computer Science &middot; University of Alabama</p>
+          <p class="sidebar-bio">
+            PhD Candidate, Computer Science &middot; University of Alabama
+          </p>
         </div>
 
         <!-- Navigation -->
         <div class="sidebar-section">
           <h2>Navigation</h2>
           <nav class="sidebar-nav-links">
-            <a href="/"{% if page.active == "about" %} class="active"{% endif %}>
-              <i class="fas fa-user fa-fw" style="color:#58a6ff"></i> About
+            <a href="/" {% if page.active == "about" %} class="active" {% endif %}>
+              <i class="fas fa-user fa-fw" style="color: #58a6ff"></i> About
             </a>
-            <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>
-              <i class="fas fa-file-alt fa-fw" style="color:#ffa657"></i> Publications
+            <a href="/html/publication.html" {% if page.active == "publication" %} class="active" {% endif %}>
+              <i class="fas fa-file-alt fa-fw" style="color: #ffa657"></i>
+              Publications
             </a>
-            <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>
-              <i class="fas fa-laptop fa-fw" style="color:#3fb950"></i> Projects
+            <a href="/html/project.html" {% if page.active == "project" %} class="active" {% endif %}>
+              <i class="fas fa-laptop fa-fw" style="color: #3fb950"></i>
+              Projects
             </a>
-            <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>
-              <i class="fas fa-briefcase fa-fw" style="color:#d2a8ff"></i> Experience
+            <a href="/html/experience.html" {% if page.active == "experience" %} class="active" {% endif %}>
+              <i class="fas fa-briefcase fa-fw" style="color: #d2a8ff"></i>
+              Experience
             </a>
-            <a href="/html/education.html"{% if page.active == "education" %} class="active"{% endif %}>
-              <i class="fas fa-graduation-cap fa-fw" style="color:#ff7b72"></i> Education
+            <a href="/html/education.html" {% if page.active == "education" %} class="active" {% endif %}>
+              <i class="fas fa-graduation-cap fa-fw" style="color: #ff7b72"></i>
+              Education
             </a>
-            <a href="/html/skill.html"{% if page.active == "skill" %} class="active"{% endif %}>
-              <i class="fas fa-code fa-fw" style="color:#79c0ff"></i> Skills &amp; Certs
+            <a href="/html/skill.html" {% if page.active == "skill" %} class="active" {% endif %}>
+              <i class="fas fa-code fa-fw" style="color: #79c0ff"></i> Skills
+              &amp; Certs
             </a>
-            <a href="/html/extracurricular.html"{% if page.active == "extracurricular" %} class="active"{% endif %}>
-              <i class="fas fa-handshake fa-fw" style="color:#f778ba"></i> Service
+            <a href="/html/extracurricular.html" {% if page.active == "extracurricular" %} class="active" {% endif %}>
+              <i class="fas fa-handshake fa-fw" style="color: #f778ba"></i>
+              Service
             </a>
           </nav>
         </div>
@@ -109,9 +137,9 @@
           <h2>Research Areas</h2>
           <div class="sidebar-tags">
             <span class="sidebar-tag">Supply Chain</span>
-            <span class="sidebar-tag">ML &times; Security</span>
             <span class="sidebar-tag">Threat Intel</span>
             <span class="sidebar-tag">Malware</span>
+            <span class="sidebar-tag">ML &times; Security</span>
           </div>
         </div>
 
@@ -120,20 +148,38 @@
           <h2>Connect</h2>
           <div class="sidebar-links">
             <a href="mailto:aryan9@crimson.ua.edu">
-              <i class="fas fa-envelope fa-fw" style="color:#ea4335"></i> aryan9@crimson.ua.edu
+              <i class="fas fa-envelope fa-fw" style="color: #ea4335"></i>
+              aryan9@crimson.ua.edu
             </a>
-            <a href="https://github.com/fraxhost" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github fa-fw" style="color:light-dark(#24292f, #e6edf3)"></i> GitHub
+            <a
+              href="https://github.com/fraxhost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i
+                class="fa-brands fa-github fa-fw"
+                style="color: light-dark(#24292f, #e6edf3)"
+              ></i>
+              GitHub
             </a>
-            <a href="https://www.linkedin.com/in/fraxhost/" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-linkedin fa-fw" style="color:#0a66c2"></i> LinkedIn
+            <a
+              href="https://www.linkedin.com/in/fraxhost/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-linkedin fa-fw" style="color: #0a66c2"></i>
+              LinkedIn
             </a>
-            <a href="https://cs.ua.edu/" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-university fa-fw" style="color:#9e1b32"></i> UA CS Dept.
+            <a
+              href="https://cs.ua.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-university fa-fw" style="color: #9e1b32"></i> UA
+              CS Dept.
             </a>
           </div>
         </div>
-
       </aside>
 
       <!-- Main wrapper -->
@@ -147,26 +193,49 @@
             <span class="footer-copy">Ahmed Ryan &copy; 2025</span>
             <div class="footer-links">
               <a href="mailto:aryan9@crimson.ua.edu" aria-label="Email">
-                <i class="fas fa-envelope" style="color:#ea4335"></i>
+                <i class="fas fa-envelope" style="color: #ea4335"></i>
               </a>
-              <a href="https://github.com/fraxhost" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <i class="fa-brands fa-github" style="color:light-dark(#24292f, #e6edf3)"></i>
+              <a
+                href="https://github.com/fraxhost"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i
+                  class="fa-brands fa-github"
+                  style="color: light-dark(#24292f, #e6edf3)"
+                ></i>
               </a>
-              <a href="https://www.linkedin.com/in/fraxhost/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <i class="fa-brands fa-linkedin" style="color:#0a66c2"></i>
+              <a
+                href="https://www.linkedin.com/in/fraxhost/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin" style="color: #0a66c2"></i>
               </a>
-              <a href="https://cs.ua.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Alabama">
-                <i class="fas fa-graduation-cap" style="color:#9e1b32"></i>
+              <a
+                href="https://cs.ua.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="University of Alabama"
+              >
+                <i class="fas fa-graduation-cap" style="color: #9e1b32"></i>
               </a>
             </div>
           </div>
         </footer>
       </div>
-
-    </div><!-- /.layout -->
+    </div>
+    <!-- /.layout -->
 
     <!-- Scroll-to-top -->
-    <button class="scroll-btn" id="scroll-btn" onclick="scrollToTop()" aria-label="Scroll to top">
+    <button
+      class="scroll-btn"
+      id="scroll-btn"
+      onclick="scrollToTop()"
+      aria-label="Scroll to top"
+    >
       <i class="fas fa-chevron-up"></i>
     </button>
 
