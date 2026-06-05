@@ -16,12 +16,12 @@
   --gray-11: #161619;
   --gray-12: #0d0d11;
 
-  --beige-0: #fdf9ee;
-  --beige-1: #f6f0df;
-  --beige-2: #eee8d5;
-  --beige-25: #e5dcbd;
-  --beige-3: #ded4b2;
-  --beige-4: #c6ba93;
+  --beige-0: #f7f9f7;
+  --beige-1: #f1f3f1;
+  --beige-2: #e7eae7;
+  --beige-25: #d9ddd9;
+  --beige-3: #cdd2cd;
+  --beige-4: #b3bbb3;
 
   /* ─── Semantic colors (light-dark) ──────────────── */
   --color-primary:                    light-dark(#027a40, #03ef62);
