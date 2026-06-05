@@ -40,7 +40,7 @@ if (navToggle && navMenu) {
 // Default is light; toggling sets it to dark.
 
 function getScheme() {
-  return localStorage.getItem('colorScheme') || 'light';
+  return localStorage.getItem('colorScheme') || 'dark';
 }
 
 function applyScheme(scheme) {

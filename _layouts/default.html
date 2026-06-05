@@ -15,6 +15,7 @@
       (function () {
         var s = localStorage.getItem("colorScheme");
         if (s) document.documentElement.style.colorScheme = s;
+        // default is dark — only override if explicitly stored as light
       })();
     </script>
     <!-- Google tag (gtag.js) -->
