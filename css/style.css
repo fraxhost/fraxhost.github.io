@@ -425,9 +425,7 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
 
 .main-content {
   flex: 1;
-  max-width: var(--content-width);
   padding: var(--layout-padding);
-  margin: 0 auto;
   width: 100%;
 }
 

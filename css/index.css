@@ -38,7 +38,6 @@
   color: var(--color-text);
   line-height: 1.65;
   margin: 0;
-  max-width: 560px;
   text-align: justify;
 }
 
@@ -49,9 +48,6 @@
 
 /* ─── About body ────────────────────────────────────── */
 
-.about-body {
-  max-width: 640px;
-}
 
 .about-para {
   font-size: 1rem;
