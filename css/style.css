@@ -206,9 +206,11 @@ a.navbar-title-link {
 a.navbar-title-link:hover { color: var(--color-text-navbar-hover); }
 
 .navbar-logo-icon {
-  font-size: 1.25rem;
-  color: var(--color-text-navbar);
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
   flex-shrink: 0;
+  display: block;
 }
 
 .navbar-right {
@@ -319,11 +321,11 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
 }
 
 .sidebar-avatar-icon {
-  font-size: 1.6rem;
-  color: var(--color-text-muted);
-  flex-shrink: 0;
   width: 36px;
-  text-align: center;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
 }
 
 .sidebar-bio {
