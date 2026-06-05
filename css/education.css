@@ -17,6 +17,7 @@
   color: var(--color-text-muted);
   margin-top: 0.15rem;
   margin-bottom: 0.4rem;
+  text-align: justify;
 }
 
 .education-courses { margin-bottom: 0.5rem; }

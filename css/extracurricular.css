@@ -24,6 +24,7 @@
   line-height: 1.7;
   margin-top: 0.5rem;
   color: var(--color-text);
+  text-align: justify;
 }
 .extracurricular-description a {
   color: var(--color-primary);

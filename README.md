@@ -52,6 +52,12 @@ jekyll serve --livereload
 
 Then open [http://127.0.0.1:4000](http://127.0.0.1:4000).
 
+> **Port already in use?** Another Jekyll process is likely running in the background. Kill it first:
+> ```bash
+> lsof -ti:4000 | xargs kill -9
+> ```
+> Then re-run `jekyll serve --livereload`. Alternatively, use a different port: `jekyll serve --livereload --port 4001`
+
 ---
 
 ## 🛠️ Technologies Used
