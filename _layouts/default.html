@@ -9,16 +9,14 @@
     {% endif %}
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <title>Ahmed Ryan</title>
-    <!-- Apply saved color-scheme before first paint to prevent flash -->
     <script>
       (function () {
         var s = localStorage.getItem("colorScheme");
         if (s) document.documentElement.style.colorScheme = s;
-        // default is dark — only override if explicitly stored as light
       })();
     </script>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH8V4Y4GWW"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -29,11 +27,11 @@
   </head>
   <body>
 
-    <!-- ── Mobile navbar (hidden ≥ 1020px) ───────────────── -->
+    <!-- Mobile navbar (hidden ≥ 1020px) -->
     <nav class="navbar">
       <div class="navbar-title">
         <a class="navbar-title-link" href="/">
-          <i class="fas fa-user-secret navbar-logo-icon"></i>
+          <i class="fas fa-user-ninja navbar-logo-icon" style="color:#03ef62"></i>
           Ahmed Ryan
         </a>
       </div>
@@ -58,17 +56,17 @@
       <a href="/html/extracurricular.html"{% if page.active == "extracurricular" %} class="active"{% endif %}>Service</a>
     </div>
 
-    <!-- ── Layout ─────────────────────────────────────────── -->
+    <!-- Layout -->
     <div class="layout">
 
       <!-- Desktop sidebar (shown ≥ 1020px) -->
       <aside class="sidebar">
 
-        <!-- Name + avatar + theme toggle -->
+        <!-- Name + icon + theme toggle -->
         <div class="sidebar-section">
           <div class="sidebar-name-row">
             <a class="sidebar-title-link" href="/">
-              <i class="fas fa-user-secret sidebar-avatar-icon"></i>
+              <i class="fas fa-user-ninja sidebar-avatar-icon" style="color:#03ef62"></i>
               <span class="site-name">Ahmed Ryan</span>
             </a>
             <button class="icon-btn" id="theme-toggle-sidebar" aria-label="Toggle theme">
@@ -123,16 +121,16 @@
           <h2>Connect</h2>
           <div class="sidebar-links">
             <a href="mailto:aryan9@crimson.ua.edu">
-              <i class="fas fa-envelope fa-fw"></i> aryan9@crimson.ua.edu
+              <i class="fas fa-envelope fa-fw" style="color:#ea4335"></i> aryan9@crimson.ua.edu
             </a>
             <a href="https://github.com/fraxhost" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github fa-fw"></i> GitHub
+              <i class="fa-brands fa-github fa-fw" style="color:#e6edf3"></i> GitHub
             </a>
             <a href="https://www.linkedin.com/in/fraxhost/" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-linkedin fa-fw"></i> LinkedIn
+              <i class="fa-brands fa-linkedin fa-fw" style="color:#0a66c2"></i> LinkedIn
             </a>
             <a href="https://cs.ua.edu/" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-university fa-fw"></i> UA CS Dept.
+              <i class="fas fa-university fa-fw" style="color:#9e1b32"></i> UA CS Dept.
             </a>
           </div>
         </div>
@@ -142,19 +140,25 @@
       <!-- Main wrapper -->
       <div class="main-wrapper">
         <main>
-          <div class="main-content">
-            {{ content }}
-          </div>
+          <div class="main-content">{{ content }}</div>
         </main>
 
         <footer class="footer">
           <div class="footer-inner">
             <span class="footer-copy">Ahmed Ryan &copy; 2025</span>
             <div class="footer-links">
-              <a href="mailto:aryan9@crimson.ua.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
-              <a href="https://github.com/fraxhost" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/fraxhost/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-              <a href="https://cs.ua.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Alabama"><i class="fas fa-graduation-cap"></i></a>
+              <a href="mailto:aryan9@crimson.ua.edu" aria-label="Email">
+                <i class="fas fa-envelope" style="color:#ea4335"></i>
+              </a>
+              <a href="https://github.com/fraxhost" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fa-brands fa-github" style="color:#e6edf3"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/fraxhost/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin" style="color:#0a66c2"></i>
+              </a>
+              <a href="https://cs.ua.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Alabama">
+                <i class="fas fa-graduation-cap" style="color:#9e1b32"></i>
+              </a>
             </div>
           </div>
         </footer>
