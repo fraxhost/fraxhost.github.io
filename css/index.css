@@ -99,7 +99,7 @@
 
   /* Pink circle behind photo — Tania's signature detail */
   .hero-image-container::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -12px;
     left: -12px;
