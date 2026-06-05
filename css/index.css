@@ -1,71 +1,131 @@
-.about-greetings {
-  font-size: 3rem;
+/* ─── Hero ──────────────────────────────────────────── */
+
+.hero-index {
+  margin-bottom: 2.5rem;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.hero-image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-border);
+  display: block;
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-wrapper h1 {
+  margin: 0;
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 560px;
+}
+
+.hero-description strong {
+  color: var(--color-text-emphasized);
   font-weight: 600;
-  margin-bottom: 1rem;
 }
 
-strong {
-  font-size: 1.6rem;
-  font-weight: 500;
+/* ─── About body ────────────────────────────────────── */
+
+.about-body {
+  max-width: 640px;
 }
 
-.about-introduction,
-.about-overall-experience,
-.about-research-experience {
-  text-align: justify;
-  font-size: 1.8rem;
-  font-weight: 300;
-  line-height: 1.3;
-  margin-bottom: 1rem;
+.about-para {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin: 0 0 1rem;
 }
 
-.about-research-introduction {
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.3;
-  margin-bottom: 0.5rem;
+.about-para strong {
+  color: var(--color-text-emphasized);
+  font-weight: 600;
 }
 
-.about-research-interests li {
-  font-size: 1.8rem;
-  font-weight: 300;
-  line-height: 1.3;
+.about-section-heading {
+  font-family: var(--font-family);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.6rem;
+  margin: 2rem 0 1rem;
 }
 
-.about-contact-me {
-  font-size: 1.8rem;
-  font-weight: 300;
-  line-height: 1.3;
-  margin-top: 1rem;
-}
+/* ─── Responsive hero ───────────────────────────────── */
 
-@media (max-width: 920px) {
-  main {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .side-bar {
-    width: 30rem;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-  }
-
-  .profile-links {
-    display: flex;
+@media screen and (min-width: 600px) {
+  .hero-container {
     flex-direction: row;
-    justify-content: center;
-  }
-
-  .profile-info {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
   }
 
-  .scroll-btn {
-    display: none !important;
+  .hero-image {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+  }
+
+  .hero-image-container {
+    position: relative;
+  }
+
+  /* Pink circle behind photo — Tania's signature detail */
+  .hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: calc(100% + 24px);
+    height: calc(100% + 24px);
+    border-radius: 50%;
+    background: var(--color-primary);
+    opacity: 0.15;
+    z-index: 0;
+  }
+
+  .hero-image {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .hero-index {
+    margin-top: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-description {
+    font-size: 1.15rem;
   }
 }
