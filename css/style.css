@@ -205,12 +205,10 @@ a.navbar-title-link {
 }
 a.navbar-title-link:hover { color: var(--color-text-navbar-hover); }
 
-.navbar-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--color-border);
+.navbar-logo-icon {
+  font-size: 1.25rem;
+  color: var(--color-text-navbar);
+  flex-shrink: 0;
 }
 
 .navbar-right {
@@ -320,13 +318,12 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
   color: var(--color-text-emphasized);
 }
 
-.sidebar-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--color-border);
+.sidebar-avatar-icon {
+  font-size: 1.6rem;
+  color: var(--color-text-muted);
   flex-shrink: 0;
+  width: 36px;
+  text-align: center;
 }
 
 .sidebar-bio {

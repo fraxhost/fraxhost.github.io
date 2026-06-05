@@ -33,7 +33,7 @@
     <nav class="navbar">
       <div class="navbar-title">
         <a class="navbar-title-link" href="/">
-          <img class="navbar-logo" src="/assets/images/ryan.jpg" alt="Ahmed Ryan" />
+          <i class="fas fa-user-secret navbar-logo-icon"></i>
           Ahmed Ryan
         </a>
       </div>
@@ -50,8 +50,8 @@
     <!-- Mobile nav dropdown -->
     <div class="navbar-menu" id="navbar-menu">
       <a href="/"{% if page.active == "about" %} class="active"{% endif %}>About</a>
-      <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>Projects</a>
       <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>Publications</a>
+      <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>Projects</a>
       <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>Experience</a>
       <a href="/html/education.html"{% if page.active == "education" %} class="active"{% endif %}>Education</a>
       <a href="/html/skill.html"{% if page.active == "skill" %} class="active"{% endif %}>Skills &amp; Certs</a>
@@ -68,7 +68,7 @@
         <div class="sidebar-section">
           <div class="sidebar-name-row">
             <a class="sidebar-title-link" href="/">
-              <img class="sidebar-avatar" src="/assets/images/ryan.jpg" alt="Ahmed Ryan" />
+              <i class="fas fa-user-secret sidebar-avatar-icon"></i>
               <span class="site-name">Ahmed Ryan</span>
             </a>
             <button class="icon-btn" id="theme-toggle-sidebar" aria-label="Toggle theme">
@@ -85,11 +85,11 @@
             <a href="/"{% if page.active == "about" %} class="active"{% endif %}>
               <i class="fas fa-user fa-fw"></i> About
             </a>
-            <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>
-              <i class="fas fa-flask fa-fw"></i> Projects
-            </a>
             <a href="/html/publication.html"{% if page.active == "publication" %} class="active"{% endif %}>
               <i class="fas fa-file-alt fa-fw"></i> Publications
+            </a>
+            <a href="/html/project.html"{% if page.active == "project" %} class="active"{% endif %}>
+              <i class="fas fa-flask fa-fw"></i> Projects
             </a>
             <a href="/html/experience.html"{% if page.active == "experience" %} class="active"{% endif %}>
               <i class="fas fa-briefcase fa-fw"></i> Experience
