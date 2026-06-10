@@ -1,14 +1,32 @@
-.all-project-container { margin-bottom: 2rem; }
+.all-project-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.project-title {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .all-project-container {
+    grid-template-columns: 1fr;
+  }
+}
 
 .project-container {
   border: 2px solid var(--color-border-card);
   border-radius: var(--border-radius);
   padding: 1rem 1.1rem;
-  margin-bottom: 0.75rem;
   background: var(--color-background-card);
   box-shadow: var(--box-shadow, none);
   transition: border-color 0.12s ease;
+  display: flex;
+  flex-direction: column;
 }
+
+.project-description { flex: 1; }
 .project-container:hover {
   border-color: var(--color-primary);
 }
