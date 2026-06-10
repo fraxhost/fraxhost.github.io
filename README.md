@@ -28,7 +28,7 @@ Welcome to the source code for **[fraxhost.github.io](https://fraxhost.github.io
 - Responsive design for mobile and desktop
 - Jekyll templating — nav, sidebar, and footer defined once in `_layouts/default.html`
 - Modular CSS — shared rules in `style.css`, page-specific rules in individual CSS files
-- Blog with year-grouped index, live search, and per-post sticky table of contents
+- Blog with year-grouped index, live search, clickable tag filters, and per-post sticky table of contents
 - Automatic deployment via GitHub Pages on every push to `main`
 
 ---
@@ -48,6 +48,7 @@ Welcome to the source code for **[fraxhost.github.io](https://fraxhost.github.io
    layout: post
    title: "Your Post Title"
    date: 2025-07-15
+   tags: [security, tooling]
    ---
    ```
 
@@ -58,7 +59,8 @@ Welcome to the source code for **[fraxhost.github.io](https://fraxhost.github.io
 **Notes:**
 
 - The filename date and the `date:` field should match.
-- No category, tag, or `page_css` front matter is needed — `_config.yml` sets `page_css: blog` for all posts automatically.
+- `tags:` is optional but recommended. Tags appear as pill badges on the index row and the post header. Clicking a tag on either page filters the blog index to posts with that tag.
+- `page_css` front matter is not needed — `_config.yml` sets `page_css: blog` for all posts automatically.
 - A post with no `##` headings will render without a TOC (it is hidden automatically).
 
 ---

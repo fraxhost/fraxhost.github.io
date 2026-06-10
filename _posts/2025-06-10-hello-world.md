@@ -2,6 +2,7 @@
 layout: post
 title: "Hello, World"
 date: 2025-06-10
+tags: [security, supply-chain, malware, machine-learning]
 ---
 
 Welcome to my blog. I'm Ahmed Ryan, a PhD student in Computer Science at the University of Alabama. This first post covers what this blog is about, who I am, and what you can expect going forward. It's intentionally long — partly to introduce myself properly, partly to test that the table of contents works the way it should.
