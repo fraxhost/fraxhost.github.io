@@ -1,2 +1,9 @@
 title: Ahmed Ryan
 description: Personal portfolio website
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      page_css: blog

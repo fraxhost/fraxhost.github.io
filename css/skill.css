@@ -58,12 +58,23 @@ a.skill-heading:hover {
   margin: 0.15rem 0.15rem 0.15rem 0;
 }
 
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+@media (max-width: 640px) {
+  .cert-grid { grid-template-columns: 1fr; }
+}
+
 .skill-cert-item {
   border: 2px solid var(--color-border-card);
   border-radius: var(--border-radius);
   padding: 0.85rem 1rem;
-  margin-bottom: 0.7rem;
   background: var(--color-background-card);
+  display: flex;
+  flex-direction: column;
 }
 
 .skill-subheading {

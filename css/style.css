@@ -72,7 +72,7 @@
   /* ─── Layout ─────────────────────────────────────── */
   --navbar-height:   60px;
   --sidebar-width:   260px;
-  --content-width:   760px;
+  --content-width:   860px;
   --border-radius:   6px;
   --layout-padding:  1.5rem;
 
@@ -102,6 +102,7 @@
 /* ─── Reset ────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
 body { margin: 0; background-color: var(--color-background); color: var(--color-text); }
 
 img { display: block; max-width: 100%; }

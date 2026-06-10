@@ -1,0 +1,52 @@
+---
+layout: default
+page_name: Blog
+active: blog
+page_css: blog
+---
+
+<div class="blog-header">
+  <h1 class="blog-title">Blog</h1>
+  <input
+    type="text"
+    id="blog-search"
+    class="blog-search"
+    placeholder="Search posts..."
+    aria-label="Search posts"
+  />
+</div>
+
+<div class="blog-list" id="blog-list">
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year_group in posts_by_year %}
+  <div class="blog-year-group">
+    <h2 class="blog-year">{{ year_group.name }}</h2>
+    {% for post in year_group.items %}
+    <a class="blog-post-row" href="{{ post.url }}">
+      <span class="blog-post-date">{{ post.date | date: "%b %d" }}</span>
+      <span class="blog-post-title">{{ post.title }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  const searchInput = document.getElementById("blog-search");
+  const rows = document.querySelectorAll(".blog-post-row");
+  const yearGroups = document.querySelectorAll(".blog-year-group");
+
+  searchInput.addEventListener("input", function () {
+    const q = this.value.toLowerCase();
+    rows.forEach((row) => {
+      const match = row.querySelector(".blog-post-title").textContent.toLowerCase().includes(q);
+      row.style.display = match ? "" : "none";
+    });
+    yearGroups.forEach((group) => {
+      const visible = [...group.querySelectorAll(".blog-post-row")].some(
+        (r) => r.style.display !== "none"
+      );
+      group.style.display = visible ? "" : "none";
+    });
+  });
+</script>

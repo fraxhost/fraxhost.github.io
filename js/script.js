@@ -11,16 +11,6 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ── Smooth anchor scroll ─────────────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.getElementById(this.getAttribute('href').substring(1));
-    if (!target) return;
-    e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
 // ── Mobile nav toggle ────────────────────────────────────
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('navbar-menu');
