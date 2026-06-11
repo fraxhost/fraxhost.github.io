@@ -434,6 +434,7 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
   .main-content {
     padding: 1.5rem 2rem;
     margin-left: 0;
+    max-width: var(--content-width);
   }
 }
 
