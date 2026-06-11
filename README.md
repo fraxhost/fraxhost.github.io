@@ -9,11 +9,13 @@ Welcome to the source code for **[fraxhost.github.io](https://fraxhost.github.io
 
 ```
 ├── _layouts/
-│   └── default.html      # Shared layout (nav, sidebar, footer, head)
+│   ├── default.html      # Shared layout (nav, sidebar, footer, head)
+│   └── post.html         # Individual blog post layout (TOC, metadata)
+├── _posts/               # Blog posts (Markdown, named YYYY-MM-DD-slug.md)
 ├── _site/                # Jekyll build output (git-ignored)
 ├── assets/               # Images, icons, fonts
 ├── css/                  # Stylesheets (style.css = global + shared rules)
-├── html/                 # Inner pages (education, experience, project, skill, extracurricular)
+├── html/                 # Inner pages (education, experience, project, skill, extracurricular, blog)
 ├── js/                   # Interactive JavaScript features
 ├── _config.yml           # Jekyll configuration
 └── index.html            # Homepage (About Me)
@@ -26,7 +28,40 @@ Welcome to the source code for **[fraxhost.github.io](https://fraxhost.github.io
 - Responsive design for mobile and desktop
 - Jekyll templating — nav, sidebar, and footer defined once in `_layouts/default.html`
 - Modular CSS — shared rules in `style.css`, page-specific rules in individual CSS files
+- Blog with year-grouped index, live search, clickable tag filters, and per-post sticky table of contents
 - Automatic deployment via GitHub Pages on every push to `main`
+
+---
+
+## ✍️ Writing a Blog Post
+
+1. Create a file in `_posts/` named exactly `YYYY-MM-DD-your-slug.md`, e.g.:
+
+   ```text
+   _posts/2025-07-15-supply-chain-attacks.md
+   ```
+
+2. Add the required front matter at the top:
+
+   ```yaml
+   ---
+   layout: post
+   title: "Your Post Title"
+   date: 2025-07-15
+   tags: [security, tooling]
+   ---
+   ```
+
+3. Write the body in Markdown below the front matter. Use `##` and `###` headings freely — they are automatically collected into the right-side table of contents.
+
+4. Push to `main` (or the active branch). The post appears on the `/html/blog.html` index automatically, sorted newest-first.
+
+**Notes:**
+
+- The filename date and the `date:` field should match.
+- `tags:` is optional but recommended. Tags appear as pill badges on the index row and the post header. Clicking a tag on either page filters the blog index to posts with that tag.
+- `page_css` front matter is not needed — `_config.yml` sets `page_css: blog` for all posts automatically.
+- A post with no `##` headings will render without a TOC (it is hidden automatically).
 
 ---
 
