@@ -1,0 +1,90 @@
+---
+layout: default
+active: project
+page_css: tools
+---
+
+<div class="csv-viewer-header">
+  <div class="csv-viewer-header-left">
+    <a href="/html/project.html" class="csv-back-link">&larr; Projects</a>
+    <h1 class="csv-viewer-title">LaTeX Formatter</h1>
+  </div>
+  <div class="csv-viewer-header-right">
+    <div class="csv-toggle">
+      <button class="csv-toggle-btn active" id="btn-edit">Edit</button>
+      <button class="csv-toggle-btn" id="btn-format">Format</button>
+    </div>
+  </div>
+</div>
+
+<div class="csv-tool-layout">
+  <div class="csv-input-panel" id="latex-input-panel">
+    <textarea
+      id="latex-input"
+      class="csv-textarea"
+      placeholder="\documentclass{article}&#10;\begin{document}&#10;\begin{itemize}&#10;\item Hello&#10;\end{itemize}&#10;\end{document}"
+      spellcheck="false"
+    ></textarea>
+  </div>
+  <div class="csv-output-panel csv-hidden" id="latex-output">
+    <div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>
+  </div>
+</div>
+
+<script>
+  const outputEl   = document.getElementById('latex-output');
+  const inputPanel = document.getElementById('latex-input-panel');
+  const btnEdit    = document.getElementById('btn-edit');
+  const btnFormat  = document.getElementById('btn-format');
+  const INDENT     = '  ';
+
+  function formatLatex(text) {
+    const lines = text.split('\n');
+    const result = [];
+    let depth = 0, blankRun = 0;
+
+    for (const line of lines) {
+      const trimmed = line.trimEnd();
+
+      if (trimmed.trim() === '') {
+        if (blankRun < 1) result.push('');
+        blankRun++;
+        continue;
+      }
+      blankRun = 0;
+
+      const t = trimmed.trim();
+      const isEnd   = t.startsWith('\\end{')   || t.startsWith('\\end {');
+      const isBegin = t.startsWith('\\begin{') || t.startsWith('\\begin {');
+
+      if (isEnd) depth = Math.max(0, depth - 1);
+      result.push(depth > 0 ? INDENT.repeat(depth) + t : t);
+      if (isBegin) depth++;
+    }
+
+    return result.join('\n').trimEnd();
+  }
+
+  function format() {
+    const text = document.getElementById('latex-input').value.trim();
+    if (!text) {
+      outputEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>';
+      return;
+    }
+    const pre = document.createElement('pre');
+    pre.className = 'json-output';
+    pre.textContent = formatLatex(text);
+    outputEl.innerHTML = '';
+    outputEl.appendChild(pre);
+  }
+
+  function switchView(view) {
+    inputPanel.classList.toggle('csv-hidden', view !== 'edit');
+    outputEl.classList.toggle('csv-hidden', view !== 'format');
+    btnEdit.classList.toggle('active', view === 'edit');
+    btnFormat.classList.toggle('active', view === 'format');
+  }
+
+  btnEdit.addEventListener('click', () => switchView('edit'));
+  btnFormat.addEventListener('click', () => { format(); switchView('format'); });
+</script>
