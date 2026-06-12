@@ -535,10 +535,6 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
 
 /* ─── Footer ────────────────────────────────────────── */
 .footer {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  background: var(--color-background);
   border-top: 1px solid var(--color-border);
   padding: 1.25rem var(--layout-padding);
   font-size: 0.82rem;
