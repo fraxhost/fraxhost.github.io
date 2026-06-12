@@ -9,12 +9,17 @@ page_css: csv-viewer
     <a href="/html/project.html" class="csv-back-link">&larr; Projects</a>
     <h1 class="csv-viewer-title">CSV Viewer</h1>
   </div>
-  <span class="csv-viewer-meta" id="csv-meta"></span>
+  <div class="csv-viewer-header-right">
+    <span class="csv-viewer-meta" id="csv-meta"></span>
+    <div class="csv-toggle">
+      <button class="csv-toggle-btn active" id="btn-edit">Edit</button>
+      <button class="csv-toggle-btn" id="btn-table">Table</button>
+    </div>
+  </div>
 </div>
 
 <div class="csv-tool-layout">
-  <div class="csv-input-panel">
-    <span class="csv-panel-label">Paste CSV</span>
+  <div class="csv-input-panel" id="csv-input-panel">
     <textarea
       id="csv-input"
       class="csv-textarea"
@@ -22,8 +27,8 @@ page_css: csv-viewer
       spellcheck="false"
     ></textarea>
   </div>
-  <div class="csv-output-panel" id="csv-output">
-    <div class="csv-empty-state">Paste CSV text on the left to visualize it here.</div>
+  <div class="csv-output-panel csv-hidden" id="csv-output">
+    <div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>
   </div>
 </div>
 
@@ -55,22 +60,35 @@ page_css: csv-viewer
     return rows;
   }
 
-  const outputEl = document.getElementById('csv-output');
-  const metaEl   = document.getElementById('csv-meta');
+  const outputEl   = document.getElementById('csv-output');
+  const inputPanel = document.getElementById('csv-input-panel');
+  const metaEl     = document.getElementById('csv-meta');
+  const btnEdit    = document.getElementById('btn-edit');
+  const btnTable   = document.getElementById('btn-table');
   let data = [], sortCol = -1, sortDir = 0;
+
+  function switchView(view) {
+    inputPanel.classList.toggle('csv-hidden', view !== 'edit');
+    outputEl.classList.toggle('csv-hidden', view !== 'table');
+    btnEdit.classList.toggle('active', view === 'edit');
+    btnTable.classList.toggle('active', view === 'table');
+  }
+
+  btnEdit.addEventListener('click', () => switchView('edit'));
+  btnTable.addEventListener('click', () => switchView('table'));
 
   function render() {
     if (!data.length) {
-      outputEl.innerHTML = '<div class="csv-empty-state">Paste CSV text on the left to visualize it here.</div>';
+      outputEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>';
       metaEl.textContent = '';
       return;
     }
 
     const headers = data[0];
     const rows    = data.slice(1);
-    const rLabel  = rows.length + ' row' + (rows.length !== 1 ? 's' : '');
-    const cLabel  = headers.length + ' col' + (headers.length !== 1 ? 's' : '');
-    metaEl.textContent = rLabel + ' × ' + cLabel;
+    metaEl.textContent = rows.length + ' row' + (rows.length !== 1 ? 's' : '')
+                       + ' × '
+                       + headers.length + ' col' + (headers.length !== 1 ? 's' : '');
 
     let sorted = rows;
     if (sortDir !== 0 && sortCol >= 0) {
@@ -94,9 +112,9 @@ page_css: csv-viewer
       th.textContent = h;
       if (i === sortCol && sortDir !== 0) th.dataset.sort = sortDir === 1 ? 'asc' : 'desc';
       th.addEventListener('click', () => {
-        if (sortCol !== i)   { sortCol = i; sortDir = 1; }
+        if (sortCol !== i)       { sortCol = i; sortDir = 1; }
         else if (sortDir === 1)  sortDir = -1;
-        else                { sortDir = 0; sortCol = -1; }
+        else                     { sortDir = 0; sortCol = -1; }
         render();
       });
       hrow.appendChild(th);
@@ -128,6 +146,7 @@ page_css: csv-viewer
       if (!text.trim()) { data = []; render(); return; }
       sortCol = -1; sortDir = 0;
       data = parseCSV(text);
+      if (data.length) switchView('table');
       render();
     }, 150);
   });

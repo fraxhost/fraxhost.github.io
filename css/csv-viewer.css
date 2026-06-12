@@ -15,6 +15,12 @@
   gap: 1rem;
 }
 
+.csv-viewer-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .csv-back-link {
   font-size: 0.85rem;
   color: var(--color-text-muted);
@@ -35,39 +41,52 @@
   color: var(--color-text-muted);
 }
 
-/* ─── Two-panel layout ───────────────────────────── */
+/* ─── Toggle ─────────────────────────────────────── */
+
+.csv-toggle {
+  display: flex;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.csv-toggle-btn {
+  padding: 0.3rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: none;
+  border: none;
+  border-right: 1.5px solid var(--color-border);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: background 0.1s, color 0.1s;
+}
+.csv-toggle-btn:last-child { border-right: none; }
+.csv-toggle-btn.active {
+  background: var(--color-primary);
+  color: light-dark(white, black);
+}
+.csv-toggle-btn:not(.active):hover {
+  background: var(--color-background-link-hover);
+  color: var(--color-text);
+}
+
+/* ─── Single-panel layout ────────────────────────── */
 
 .csv-tool-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
   height: calc(100vh - 12rem);
   min-height: 300px;
 }
 
-@media (max-width: 768px) {
-  .csv-tool-layout {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-  .csv-input-panel { height: 280px; }
-  .csv-output-panel { height: 380px; }
-}
+.csv-hidden { display: none; }
 
 /* ─── Input panel ────────────────────────────────── */
 
 .csv-input-panel {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-}
-
-.csv-panel-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
+  height: 100%;
 }
 
 .csv-textarea {
@@ -95,6 +114,7 @@
   overflow: auto;
   background: var(--color-background-card);
   position: relative;
+  height: 100%;
 }
 
 .csv-empty-state {
