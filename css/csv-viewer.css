@@ -79,7 +79,7 @@
   min-height: 300px;
 }
 
-.csv-hidden { display: none; }
+.csv-hidden { display: none !important; }
 
 /* ─── Input panel ────────────────────────────────── */
 
