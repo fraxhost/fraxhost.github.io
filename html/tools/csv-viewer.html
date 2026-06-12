@@ -1,0 +1,152 @@
+---
+layout: default
+active: project
+page_css: tools
+---
+
+<div class="csv-viewer-header">
+  <div class="csv-viewer-header-left">
+    <a href="/html/project.html" class="csv-back-link">&larr; Projects</a>
+    <h1 class="csv-viewer-title">CSV Viewer</h1>
+  </div>
+  <div class="csv-viewer-header-right">
+    <span class="csv-viewer-meta" id="csv-meta"></span>
+    <div class="csv-toggle">
+      <button class="csv-toggle-btn active" id="btn-edit">Edit</button>
+      <button class="csv-toggle-btn" id="btn-table">Table</button>
+    </div>
+  </div>
+</div>
+
+<div class="csv-tool-layout">
+  <div class="csv-input-panel" id="csv-input-panel">
+    <textarea
+      id="csv-input"
+      class="csv-textarea"
+      placeholder="name,age,city&#10;Alice,30,New York&#10;Bob,25,London"
+      spellcheck="false"
+    ></textarea>
+  </div>
+  <div class="csv-output-panel csv-hidden" id="csv-output">
+    <div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>
+  </div>
+</div>
+
+<script>
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (inQuotes) {
+        if (c === '"') {
+          if (i + 1 < text.length && text[i + 1] === '"') { field += '"'; i++; }
+          else inQuotes = false;
+        } else {
+          field += c;
+        }
+      } else {
+        if      (c === '"')  inQuotes = true;
+        else if (c === ',')  { row.push(field); field = ''; }
+        else if (c === '\r') { /* skip */ }
+        else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+        else                  field += c;
+      }
+    }
+
+    if (row.length > 0 || field !== '') { row.push(field); rows.push(row); }
+    if (rows.length > 0 && rows[rows.length - 1].length === 1 && rows[rows.length - 1][0] === '') rows.pop();
+    return rows;
+  }
+
+  const outputEl   = document.getElementById('csv-output');
+  const inputPanel = document.getElementById('csv-input-panel');
+  const metaEl     = document.getElementById('csv-meta');
+  const btnEdit    = document.getElementById('btn-edit');
+  const btnTable   = document.getElementById('btn-table');
+  let data = [], sortCol = -1, sortDir = 0;
+
+  function switchView(view) {
+    inputPanel.classList.toggle('csv-hidden', view !== 'edit');
+    outputEl.classList.toggle('csv-hidden', view !== 'table');
+    btnEdit.classList.toggle('active', view === 'edit');
+    btnTable.classList.toggle('active', view === 'table');
+  }
+
+  btnEdit.addEventListener('click', () => switchView('edit'));
+  btnTable.addEventListener('click', () => switchView('table'));
+
+  function render() {
+    if (!data.length) {
+      outputEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>';
+      metaEl.textContent = '';
+      return;
+    }
+
+    const headers = data[0];
+    const rows    = data.slice(1);
+    metaEl.textContent = rows.length + ' row' + (rows.length !== 1 ? 's' : '')
+                       + ' × '
+                       + headers.length + ' col' + (headers.length !== 1 ? 's' : '');
+
+    let sorted = rows;
+    if (sortDir !== 0 && sortCol >= 0) {
+      sorted = [...rows].sort((a, b) => {
+        const av = a[sortCol] ?? '', bv = b[sortCol] ?? '';
+        const an = Number(av), bn = Number(bv);
+        const cmp = (av !== '' && bv !== '' && !isNaN(an) && !isNaN(bn))
+          ? an - bn : av.localeCompare(bv);
+        return sortDir * cmp;
+      });
+    }
+
+    const table = document.createElement('table');
+    table.className = 'csv-table';
+
+    const thead = document.createElement('thead');
+    const hrow  = document.createElement('tr');
+    headers.forEach((h, i) => {
+      const th = document.createElement('th');
+      th.className   = 'csv-th';
+      th.textContent = h;
+      if (i === sortCol && sortDir !== 0) th.dataset.sort = sortDir === 1 ? 'asc' : 'desc';
+      th.addEventListener('click', () => {
+        if (sortCol !== i)       { sortCol = i; sortDir = 1; }
+        else if (sortDir === 1)  sortDir = -1;
+        else                     { sortDir = 0; sortCol = -1; }
+        render();
+      });
+      hrow.appendChild(th);
+    });
+    thead.appendChild(hrow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    sorted.forEach(row => {
+      const tr = document.createElement('tr');
+      headers.forEach((_, i) => {
+        const td = document.createElement('td');
+        td.textContent = row[i] ?? '';
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+
+    outputEl.innerHTML = '';
+    outputEl.appendChild(table);
+  }
+
+  let timer;
+  document.getElementById('csv-input').addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const text = document.getElementById('csv-input').value;
+      if (!text.trim()) { data = []; render(); return; }
+      sortCol = -1; sortDir = 0;
+      data = parseCSV(text);
+      render();
+    }, 150);
+  });
+</script>

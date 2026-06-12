@@ -1,0 +1,87 @@
+---
+layout: default
+active: project
+page_css: tools
+---
+
+<div class="csv-viewer-header">
+  <div class="csv-viewer-header-left">
+    <a href="/html/project.html" class="csv-back-link">&larr; Projects</a>
+    <h1 class="csv-viewer-title">JSON Formatter</h1>
+  </div>
+  <div class="csv-viewer-header-right">
+    <span class="tool-toggle-label">Indent</span>
+    <div class="csv-toggle">
+      <button class="csv-toggle-btn active" id="btn-2">2</button>
+      <button class="csv-toggle-btn" id="btn-4">4</button>
+    </div>
+    <div class="csv-toggle">
+      <button class="csv-toggle-btn active" id="btn-edit">Edit</button>
+      <button class="csv-toggle-btn" id="btn-format">Format</button>
+    </div>
+  </div>
+</div>
+
+<div class="csv-tool-layout">
+  <div class="csv-input-panel" id="json-input-panel">
+    <textarea
+      id="json-input"
+      class="csv-textarea"
+      placeholder='{"name": "Alice", "age": 30, "active": true}'
+      spellcheck="false"
+    ></textarea>
+  </div>
+  <div class="csv-output-panel csv-hidden" id="json-output">
+    <div class="csv-empty-state">Switch to Edit, paste your JSON, then click Format.</div>
+  </div>
+</div>
+
+<script>
+  const outputEl   = document.getElementById('json-output');
+  const inputPanel = document.getElementById('json-input-panel');
+  const btnEdit    = document.getElementById('btn-edit');
+  const btnFormat  = document.getElementById('btn-format');
+  const btn2       = document.getElementById('btn-2');
+  const btn4       = document.getElementById('btn-4');
+  let indent = 2;
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function format() {
+    const text = document.getElementById('json-input').value.trim();
+    if (!text) {
+      outputEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your JSON, then click Format.</div>';
+      return;
+    }
+    try {
+      const pre = document.createElement('pre');
+      pre.className = 'json-output';
+      pre.textContent = JSON.stringify(JSON.parse(text), null, indent);
+      outputEl.innerHTML = '';
+      outputEl.appendChild(pre);
+    } catch (e) {
+      outputEl.innerHTML = '<div class="json-error">' + escapeHtml(e.message) + '</div>';
+    }
+  }
+
+  function switchView(view) {
+    inputPanel.classList.toggle('csv-hidden', view !== 'edit');
+    outputEl.classList.toggle('csv-hidden', view !== 'format');
+    btnEdit.classList.toggle('active', view === 'edit');
+    btnFormat.classList.toggle('active', view === 'format');
+  }
+
+  function setIndent(n) {
+    indent = n;
+    btn2.classList.toggle('active', n === 2);
+    btn4.classList.toggle('active', n === 4);
+    if (!outputEl.classList.contains('csv-hidden')) format();
+  }
+
+  btnEdit.addEventListener('click', () => switchView('edit'));
+  btnFormat.addEventListener('click', () => { format(); switchView('format'); });
+  btn2.addEventListener('click', () => setIndent(2));
+  btn4.addEventListener('click', () => setIndent(4));
+</script>

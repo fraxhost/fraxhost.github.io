@@ -80,3 +80,10 @@
 .project-link-sep {
   color: var(--color-text-muted);
 }
+
+.live-tool-card {
+  border-color: var(--color-primary);
+}
+.live-tool-card:hover {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
