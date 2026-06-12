@@ -82,8 +82,26 @@
 }
 
 .live-tool-card {
-  border-color: var(--color-primary);
+  position: relative;
 }
-.live-tool-card:hover {
-  box-shadow: 0 0 0 2px var(--color-primary);
+
+.live-status {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.9rem;
+  display: block;
+}
+
+.live-status-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  animation: live-pulse 2s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.45; transform: scale(0.8); }
 }
