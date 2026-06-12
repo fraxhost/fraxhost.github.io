@@ -518,19 +518,19 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
   margin-top: auto;
   padding: 0.6rem 1.1rem;
   border-top: 1px solid var(--color-border);
-}
-
-.sidebar-views-badge {
-  height: 18px;
-  display: block;
-}
-
-.sidebar-views-fallback {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 0.4rem;
   font-size: 0.78rem;
   color: var(--color-text-muted);
+}
+
+.sidebar-views-icon { font-size: 0.72rem; }
+
+.sidebar-views-count {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ─── Footer ────────────────────────────────────────── */
