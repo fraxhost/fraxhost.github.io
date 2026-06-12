@@ -19,6 +19,7 @@ page_css: tools
 
 <div class="csv-tool-layout">
   <div class="csv-input-panel" id="latex-input-panel">
+    <button class="panel-action-btn" id="paste-btn">Paste</button>
     <textarea
       id="latex-input"
       class="csv-textarea"
@@ -27,12 +28,16 @@ page_css: tools
     ></textarea>
   </div>
   <div class="csv-output-panel csv-hidden" id="latex-output">
-    <div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>
+    <button class="panel-action-btn" id="copy-btn">Copy</button>
+    <div class="panel-content" id="latex-output-content">
+      <div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>
+    </div>
   </div>
 </div>
 
 <script>
   const outputEl   = document.getElementById('latex-output');
+  const contentEl  = document.getElementById('latex-output-content');
   const inputPanel = document.getElementById('latex-input-panel');
   const btnEdit    = document.getElementById('btn-edit');
   const btnFormat  = document.getElementById('btn-format');
@@ -98,14 +103,14 @@ page_css: tools
   function format() {
     const text = document.getElementById('latex-input').value.trim();
     if (!text) {
-      outputEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>';
+      contentEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>';
       return;
     }
     const pre = document.createElement('pre');
     pre.className = 'json-output';
     pre.textContent = formatLatex(text);
-    outputEl.innerHTML = '';
-    outputEl.appendChild(pre);
+    contentEl.innerHTML = '';
+    contentEl.appendChild(pre);
   }
 
   function switchView(view) {
@@ -117,4 +122,24 @@ page_css: tools
 
   btnEdit.addEventListener('click', () => switchView('edit'));
   btnFormat.addEventListener('click', () => { format(); switchView('format'); });
+
+  document.getElementById('paste-btn').addEventListener('click', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      const ta = document.getElementById('latex-input');
+      ta.value = text;
+      ta.dispatchEvent(new Event('input'));
+    } catch (_) {}
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    const text = contentEl.innerText.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1500);
+    } catch (_) {}
+  });
 </script>

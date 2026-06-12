@@ -20,6 +20,7 @@ page_css: tools
 
 <div class="csv-tool-layout">
   <div class="csv-input-panel" id="csv-input-panel">
+    <button class="panel-action-btn" id="paste-btn">Paste</button>
     <textarea
       id="csv-input"
       class="csv-textarea"
@@ -28,7 +29,10 @@ page_css: tools
     ></textarea>
   </div>
   <div class="csv-output-panel csv-hidden" id="csv-output">
-    <div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>
+    <button class="panel-action-btn" id="copy-btn">Copy</button>
+    <div class="panel-content" id="csv-output-content">
+      <div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>
+    </div>
   </div>
 </div>
 
@@ -61,6 +65,7 @@ page_css: tools
   }
 
   const outputEl   = document.getElementById('csv-output');
+  const contentEl  = document.getElementById('csv-output-content');
   const inputPanel = document.getElementById('csv-input-panel');
   const metaEl     = document.getElementById('csv-meta');
   const btnEdit    = document.getElementById('btn-edit');
@@ -79,7 +84,7 @@ page_css: tools
 
   function render() {
     if (!data.length) {
-      outputEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>';
+      contentEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your CSV, then come back here.</div>';
       metaEl.textContent = '';
       return;
     }
@@ -134,8 +139,8 @@ page_css: tools
     });
     table.appendChild(tbody);
 
-    outputEl.innerHTML = '';
-    outputEl.appendChild(table);
+    contentEl.innerHTML = '';
+    contentEl.appendChild(table);
   }
 
   let timer;
@@ -148,5 +153,25 @@ page_css: tools
       data = parseCSV(text);
       render();
     }, 150);
+  });
+
+  document.getElementById('paste-btn').addEventListener('click', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      const ta = document.getElementById('csv-input');
+      ta.value = text;
+      ta.dispatchEvent(new Event('input'));
+    } catch (_) {}
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    const text = contentEl.innerText.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1500);
+    } catch (_) {}
   });
 </script>
