@@ -24,6 +24,7 @@ page_css: tools
 
 <div class="csv-tool-layout">
   <div class="csv-input-panel" id="json-input-panel">
+    <button class="panel-action-btn" id="paste-btn">Paste</button>
     <textarea
       id="json-input"
       class="csv-textarea"
@@ -32,12 +33,16 @@ page_css: tools
     ></textarea>
   </div>
   <div class="csv-output-panel csv-hidden" id="json-output">
-    <div class="csv-empty-state">Switch to Edit, paste your JSON, then click Format.</div>
+    <button class="panel-action-btn" id="copy-btn">Copy</button>
+    <div class="panel-content" id="json-output-content">
+      <div class="csv-empty-state">Switch to Edit, paste your JSON, then click Format.</div>
+    </div>
   </div>
 </div>
 
 <script>
   const outputEl   = document.getElementById('json-output');
+  const contentEl  = document.getElementById('json-output-content');
   const inputPanel = document.getElementById('json-input-panel');
   const btnEdit    = document.getElementById('btn-edit');
   const btnFormat  = document.getElementById('btn-format');
@@ -52,17 +57,17 @@ page_css: tools
   function format() {
     const text = document.getElementById('json-input').value.trim();
     if (!text) {
-      outputEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your JSON, then click Format.</div>';
+      contentEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your JSON, then click Format.</div>';
       return;
     }
     try {
       const pre = document.createElement('pre');
       pre.className = 'json-output';
       pre.textContent = JSON.stringify(JSON.parse(text), null, indent);
-      outputEl.innerHTML = '';
-      outputEl.appendChild(pre);
+      contentEl.innerHTML = '';
+      contentEl.appendChild(pre);
     } catch (e) {
-      outputEl.innerHTML = '<div class="json-error">' + escapeHtml(e.message) + '</div>';
+      contentEl.innerHTML = '<div class="json-error">' + escapeHtml(e.message) + '</div>';
     }
   }
 
@@ -84,4 +89,24 @@ page_css: tools
   btnFormat.addEventListener('click', () => { format(); switchView('format'); });
   btn2.addEventListener('click', () => setIndent(2));
   btn4.addEventListener('click', () => setIndent(4));
+
+  document.getElementById('paste-btn').addEventListener('click', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      const ta = document.getElementById('json-input');
+      ta.value = text;
+      ta.dispatchEvent(new Event('input'));
+    } catch (_) {}
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    const text = contentEl.innerText.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1500);
+    } catch (_) {}
+  });
 </script>

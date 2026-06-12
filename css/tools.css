@@ -95,6 +95,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 .csv-textarea {
@@ -119,10 +120,39 @@
 .csv-output-panel {
   border: 1.5px solid var(--color-border);
   border-radius: var(--border-radius);
-  overflow: auto;
+  overflow: hidden;
   background: var(--color-background-card);
   position: relative;
   height: 100%;
+}
+
+.panel-content {
+  height: 100%;
+  overflow: auto;
+}
+
+.panel-action-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  z-index: 2;
+  transition: opacity 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+.panel-action-btn:hover {
+  opacity: 1;
+  background: var(--color-background-link-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .csv-empty-state {

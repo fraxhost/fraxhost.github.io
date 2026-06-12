@@ -1,0 +1,145 @@
+---
+layout: default
+active: project
+page_css: tools
+---
+
+<div class="csv-viewer-header">
+  <div class="csv-viewer-header-left">
+    <a href="/html/project.html" class="csv-back-link">&larr; Projects</a>
+    <h1 class="csv-viewer-title">LaTeX Formatter</h1>
+  </div>
+  <div class="csv-viewer-header-right">
+    <div class="csv-toggle">
+      <button class="csv-toggle-btn active" id="btn-edit">Edit</button>
+      <button class="csv-toggle-btn" id="btn-format">Format</button>
+    </div>
+  </div>
+</div>
+
+<div class="csv-tool-layout">
+  <div class="csv-input-panel" id="latex-input-panel">
+    <button class="panel-action-btn" id="paste-btn">Paste</button>
+    <textarea
+      id="latex-input"
+      class="csv-textarea"
+      placeholder="\documentclass{article}&#10;\begin{document}&#10;\begin{itemize}&#10;\item Hello&#10;\end{itemize}&#10;\end{document}"
+      spellcheck="false"
+    ></textarea>
+  </div>
+  <div class="csv-output-panel csv-hidden" id="latex-output">
+    <button class="panel-action-btn" id="copy-btn">Copy</button>
+    <div class="panel-content" id="latex-output-content">
+      <div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const outputEl   = document.getElementById('latex-output');
+  const contentEl  = document.getElementById('latex-output-content');
+  const inputPanel = document.getElementById('latex-input-panel');
+  const btnEdit    = document.getElementById('btn-edit');
+  const btnFormat  = document.getElementById('btn-format');
+  const INDENT     = '  ';
+
+  const SECTIONS = [
+    { key: '\\subparagraph',  sep: '% ' + '. '.repeat(29).trimEnd() },
+    { key: '\\paragraph',     sep: '% ' + '.'.repeat(58) },
+    { key: '\\subsubsection', sep: '% ' + '- '.repeat(29).trimEnd() },
+    { key: '\\subsection',    sep: '% ' + '-'.repeat(58) },
+    { key: '\\section',       sep: '% ' + '='.repeat(58) },
+  ];
+
+  function formatLatex(text) {
+    const lines = text.split('\n');
+    const result = [];
+    let depth = 0, blankRun = 0;
+
+    function ensureBlank() {
+      if (result.length > 0 && result[result.length - 1] !== '') {
+        result.push('');
+        blankRun = 1;
+      }
+    }
+
+    for (const line of lines) {
+      const trimmed = line.trimEnd();
+
+      if (trimmed.trim() === '') {
+        if (blankRun < 1) result.push('');
+        blankRun++;
+        continue;
+      }
+      blankRun = 0;
+
+      const t = trimmed.trim();
+      const isEnd   = t.startsWith('\\end{')   || t.startsWith('\\end {');
+      const isBegin = t.startsWith('\\begin{') || t.startsWith('\\begin {');
+
+      if (isEnd) depth = Math.max(0, depth - 1);
+      const pad = INDENT.repeat(depth);
+
+      const sec = SECTIONS.find(({ key }) =>
+        new RegExp('^' + key.replace(/\\/g, '\\\\') + '[\\s{\\[*]').test(t)
+      );
+
+      if (sec) {
+        ensureBlank();
+        result.push(pad + sec.sep);
+        result.push(pad + t);
+        result.push(pad + sec.sep);
+        blankRun = 0;
+      } else {
+        result.push(pad + t);
+      }
+
+      if (isBegin) depth++;
+    }
+
+    return result.join('\n').trimEnd();
+  }
+
+  function format() {
+    const text = document.getElementById('latex-input').value.trim();
+    if (!text) {
+      contentEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, paste your LaTeX, then click Format.</div>';
+      return;
+    }
+    const pre = document.createElement('pre');
+    pre.className = 'json-output';
+    pre.textContent = formatLatex(text);
+    contentEl.innerHTML = '';
+    contentEl.appendChild(pre);
+  }
+
+  function switchView(view) {
+    inputPanel.classList.toggle('csv-hidden', view !== 'edit');
+    outputEl.classList.toggle('csv-hidden', view !== 'format');
+    btnEdit.classList.toggle('active', view === 'edit');
+    btnFormat.classList.toggle('active', view === 'format');
+  }
+
+  btnEdit.addEventListener('click', () => switchView('edit'));
+  btnFormat.addEventListener('click', () => { format(); switchView('format'); });
+
+  document.getElementById('paste-btn').addEventListener('click', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      const ta = document.getElementById('latex-input');
+      ta.value = text;
+      ta.dispatchEvent(new Event('input'));
+    } catch (_) {}
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    const text = contentEl.innerText.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1500);
+    } catch (_) {}
+  });
+</script>
