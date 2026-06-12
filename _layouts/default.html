@@ -190,11 +190,19 @@
         <!-- Page view counter -->
         <div class="sidebar-views">
           <img
-            src="https://fraxhost.goatcounter.com/counter/{{ page.url | url_encode }}.svg"
+            id="gc-badge"
             class="sidebar-views-badge"
             alt="page views"
-            onerror="this.style.display='none'"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           >
+          <span class="sidebar-views-fallback">
+            <i class="fas fa-eye fa-fw"></i> Views
+          </span>
+          <script>
+            document.getElementById('gc-badge').src =
+              'https://fraxhost.goatcounter.com/counter/' +
+              encodeURIComponent(location.pathname) + '.svg';
+          </script>
         </div>
       </aside>
 
