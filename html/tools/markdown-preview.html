@@ -1,0 +1,90 @@
+---
+layout: default
+active: project
+page_css: tools
+---
+
+<div class="csv-viewer-header">
+  <div class="csv-viewer-header-left">
+    <a href="/html/project.html" class="csv-back-link">&larr; Projects</a>
+    <h1 class="csv-viewer-title">Markdown Preview</h1>
+  </div>
+  <div class="csv-viewer-header-right">
+    <div class="csv-toggle">
+      <button class="csv-toggle-btn active" id="btn-edit">Edit</button>
+      <button class="csv-toggle-btn" id="btn-preview">Preview</button>
+    </div>
+  </div>
+</div>
+
+<div class="csv-tool-layout">
+  <div class="csv-input-panel" id="md-input-panel">
+    <button class="panel-action-btn" id="paste-btn">Paste</button>
+    <textarea
+      id="md-input"
+      class="csv-textarea"
+      placeholder="# Hello World&#10;&#10;Write **Markdown** here and click Preview."
+      spellcheck="false"
+    ></textarea>
+  </div>
+  <div class="csv-output-panel csv-hidden" id="md-output">
+    <button class="panel-action-btn" id="copy-btn">Copy</button>
+    <div class="panel-content" id="md-output-content">
+      <div class="csv-empty-state">Switch to Edit, write your Markdown, then click Preview.</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+<script>
+  const outputEl   = document.getElementById('md-output');
+  const contentEl  = document.getElementById('md-output-content');
+  const inputPanel = document.getElementById('md-input-panel');
+  const btnEdit    = document.getElementById('btn-edit');
+  const btnPreview = document.getElementById('btn-preview');
+
+  marked.setOptions({ breaks: true, gfm: true });
+
+  function preview() {
+    const text = document.getElementById('md-input').value;
+    if (!text.trim()) {
+      contentEl.innerHTML = '<div class="csv-empty-state">Switch to Edit, write your Markdown, then click Preview.</div>';
+      return;
+    }
+    const div = document.createElement('div');
+    div.className = 'md-preview';
+    div.innerHTML = DOMPurify.sanitize(marked.parse(text));
+    contentEl.innerHTML = '';
+    contentEl.appendChild(div);
+  }
+
+  function switchView(view) {
+    inputPanel.classList.toggle('csv-hidden', view !== 'edit');
+    outputEl.classList.toggle('csv-hidden',   view !== 'preview');
+    btnEdit.classList.toggle('active',    view === 'edit');
+    btnPreview.classList.toggle('active', view === 'preview');
+  }
+
+  btnEdit.addEventListener('click', () => switchView('edit'));
+  btnPreview.addEventListener('click', () => { preview(); switchView('preview'); });
+
+  document.getElementById('paste-btn').addEventListener('click', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      const ta = document.getElementById('md-input');
+      ta.value = text;
+    } catch (_) {}
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    const text = document.getElementById('md-input').value.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1500);
+    } catch (_) {}
+  });
+</script>
