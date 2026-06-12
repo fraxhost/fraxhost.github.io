@@ -1,4 +1,4 @@
-/* ─── CSV Viewer ──────────────────────────────────── */
+/* ─── Shared tool layout ──────────────────────────── */
 
 .csv-viewer-header {
   display: flex;
@@ -38,6 +38,14 @@
 .csv-viewer-meta {
   font-family: var(--font-mono);
   font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.tool-toggle-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--color-text-muted);
 }
 
@@ -129,7 +137,7 @@
   padding: 2rem;
 }
 
-/* ─── Table ──────────────────────────────────────── */
+/* ─── CSV table ──────────────────────────────────── */
 
 .csv-table {
   border-collapse: collapse;
@@ -176,4 +184,29 @@
 
 .csv-table tbody tr:hover td {
   background: var(--color-background-link-hover);
+}
+
+/* ─── JSON formatter ─────────────────────────────── */
+
+.json-output {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  padding: 0.75rem;
+  margin: 0;
+  white-space: pre;
+}
+
+.json-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: light-dark(#cf222e, #ff7b72);
+  padding: 2rem;
+  text-align: center;
 }
