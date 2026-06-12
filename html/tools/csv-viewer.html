@@ -146,7 +146,6 @@ page_css: csv-viewer
       if (!text.trim()) { data = []; render(); return; }
       sortCol = -1; sortDir = 0;
       data = parseCSV(text);
-      if (data.length) switchView('table');
       render();
     }, 150);
   });
