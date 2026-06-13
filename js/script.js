@@ -68,3 +68,13 @@ applyScheme(getScheme());
     applyScheme(getScheme() === 'dark' ? 'light' : 'dark');
   });
 });
+
+// ── Tab key → 4 spaces in tool textareas ────────────────
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Tab' || !e.target.classList.contains('csv-textarea')) return;
+  e.preventDefault();
+  var ta = e.target, s = ta.selectionStart, end = ta.selectionEnd;
+  ta.value = ta.value.substring(0, s) + '    ' + ta.value.substring(end);
+  ta.selectionStart = ta.selectionEnd = s + 4;
+  ta.dispatchEvent(new Event('input'));
+});
