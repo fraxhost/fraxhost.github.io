@@ -51,8 +51,10 @@ page_css: tools
     { key: '\\section',       sep: '% ' + '='.repeat(58) },
   ];
 
+  const SEP_SET = new Set(SECTIONS.map(s => s.sep));
+
   function formatLatex(text) {
-    const lines = text.split('\n');
+    const lines = text.split('\n').filter(line => !SEP_SET.has(line.trim()));
     const result = [];
     let depth = 0, blankRun = 0;
 
