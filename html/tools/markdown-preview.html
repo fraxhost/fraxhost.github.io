@@ -65,7 +65,7 @@ page_css: tools
     contentEl.appendChild(div);
 
     const mermaidNodes = [];
-    div.querySelectorAll('pre > code.language-mermaid').forEach(codeEl => {
+    div.querySelectorAll('pre > code[class*="language-mermaid"]').forEach(codeEl => {
       const mermaidDiv = document.createElement('div');
       mermaidDiv.className = 'mermaid';
       mermaidDiv.textContent = codeEl.textContent;
