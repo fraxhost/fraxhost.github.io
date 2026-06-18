@@ -69,6 +69,9 @@ page_css: blog
   mermaid.initialize({
     startOnLoad: false,
     theme: document.documentElement.style.colorScheme === 'dark' ? 'dark' : 'default',
+    {% if page.mermaid_rank_spacing %}
+    flowchart: { rankSpacing: {{ page.mermaid_rank_spacing }} },
+    {% endif %}
   });
   const mermaidNodes = [];
   document.querySelectorAll('.post-body pre > code[class*="language-mermaid"]').forEach(function (codeEl) {
