@@ -12,7 +12,10 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 0.1s, color 0.1s, border-color 0.1s;
+  transition:
+    background 0.1s,
+    color 0.1s,
+    border-color 0.1s;
 }
 .blog-tag:hover,
 .blog-tag--active {
@@ -56,7 +59,9 @@
   padding: 0;
   line-height: 1;
 }
-#clear-tag:hover { color: var(--color-primary); }
+#clear-tag:hover {
+  color: var(--color-primary);
+}
 
 .blog-header {
   display: flex;
@@ -192,7 +197,9 @@
   display: block;
   padding: 1px 0 1px 0.5rem;
   border-left: 2px solid transparent;
-  transition: color 0.1s, border-color 0.1s;
+  transition:
+    color 0.1s,
+    border-color 0.1s;
 }
 .toc-list a:hover {
   color: var(--color-primary);
@@ -237,14 +244,44 @@
   line-height: 1.75;
   color: var(--color-text);
 }
-.post-body h1 { font-size: 1.25rem; margin: 1.75rem 0 0.6rem;  color: var(--color-text-emphasized); }
-.post-body h2 { font-size: 1.1rem;  margin: 1.5rem 0 0.5rem;   color: var(--color-text-emphasized); }
-.post-body h3 { font-size: 1rem;    margin: 1.25rem 0 0.4rem;  color: var(--color-text-emphasized); }
-.post-body h4 { font-size: 0.93rem; margin: 1rem 0 0.35rem;    color: var(--color-text-emphasized); }
-.post-body h5 { font-size: 0.87rem; margin: 0.85rem 0 0.3rem;  color: var(--color-text-muted); }
-.post-body h6 { font-size: 0.82rem; margin: 0.75rem 0 0.25rem; color: var(--color-text-muted); }
-.post-body p  { margin-bottom: 1rem; text-align: justify; hyphens: auto; }
-.post-body a  { color: var(--color-primary); }
+.post-body h1 {
+  font-size: 1.25rem;
+  margin: 1.75rem 0 0.6rem;
+  color: var(--color-text-emphasized);
+}
+.post-body h2 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--color-text-emphasized);
+}
+.post-body h3 {
+  font-size: 1rem;
+  margin: 1.25rem 0 0.4rem;
+  color: var(--color-text-emphasized);
+}
+.post-body h4 {
+  font-size: 0.93rem;
+  margin: 1rem 0 0.35rem;
+  color: var(--color-text-emphasized);
+}
+.post-body h5 {
+  font-size: 0.87rem;
+  margin: 0.85rem 0 0.3rem;
+  color: var(--color-text-muted);
+}
+.post-body h6 {
+  font-size: 0.82rem;
+  margin: 0.75rem 0 0.25rem;
+  color: var(--color-text-muted);
+}
+.post-body p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.post-body a {
+  color: var(--color-primary);
+}
 .post-body code {
   font-family: var(--font-mono);
   font-size: 0.88em;
@@ -261,4 +298,9 @@
   overflow-x: auto;
   margin-bottom: 1rem;
 }
-.post-body pre code { background: none; border: none; padding: 0; }
+.post-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+

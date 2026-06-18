@@ -69,8 +69,11 @@ page_css: blog
   mermaid.initialize({
     startOnLoad: false,
     theme: document.documentElement.style.colorScheme === 'dark' ? 'dark' : 'default',
-    {% if page.mermaid_rank_spacing %}
-    flowchart: { rankSpacing: {{ page.mermaid_rank_spacing }} },
+    {% if page.mermaid_rank_spacing or page.mermaid_padding %}
+    flowchart: {
+      {% if page.mermaid_rank_spacing %}rankSpacing: {{ page.mermaid_rank_spacing }},{% endif %}
+      {% if page.mermaid_padding %}padding: {{ page.mermaid_padding }},{% endif %}
+    },
     {% endif %}
   });
   const mermaidNodes = [];
