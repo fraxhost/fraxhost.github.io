@@ -400,13 +400,6 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
   color: var(--color-text);
   padding: 2px 8px;
   border-radius: 999px;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-.sidebar-tag:hover {
-  background: var(--color-background-link-hover);
-  border-color: var(--color-text-muted);
-  color: var(--color-text-muted);
 }
 
 @media screen and (min-width: 1020px) {
@@ -518,13 +511,6 @@ a.sidebar-title-link:hover .site-name { text-decoration: underline; text-decorat
   color: var(--color-text);
   padding: 3px 10px;
   border-radius: 999px;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-.research-tag:hover {
-  background: var(--color-background-link-hover);
-  border-color: var(--color-text-muted);
-  color: var(--color-text-muted);
 }
 
 /* ─── Page view counter ─────────────────────────────── */

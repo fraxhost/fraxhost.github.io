@@ -64,13 +64,6 @@ a.skill-heading:hover {
   border: 1px solid var(--color-border-card);
   color: var(--color-text);
   margin: 0.15rem 0.15rem 0.15rem 0;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-.skill-tag:hover {
-  background: var(--color-background-link-hover);
-  border-color: var(--color-text-muted);
-  color: var(--color-text-muted);
 }
 
 .cert-grid {
